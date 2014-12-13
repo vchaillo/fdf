@@ -6,7 +6,7 @@
 /*   By: valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 17:32:07 by valentin          #+#    #+#             */
-/*   Updated: 2014/12/13 04:22:37 by valentin         ###   ########.fr       */
+/*   Updated: 2014/12/13 04:53:45 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	move(t_env *e)
 	{
 		draw_line(e);
 		erase_line(e);
-		usleep(10000);
+		usleep(1000);
 		e->x_rect++;
 	}
 }
