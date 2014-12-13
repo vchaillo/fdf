@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 23:35:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/13 16:14:46 by valentin         ###   ########.fr       */
+/*   Created: 2014/11/05 19:43:19 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:47:45 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int		load_window(void);
-
-int		main(int ac, char **av)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	if (ac == 2)
-		mlx_start(av[1]);
-	else
-		printf("FUCK YOU, I WON'T START MUHAHAHAHAHAHA\n");
-	return (0);
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (s2[i] == '\0')
+		return ((char *)s1);
+	while (s1[i])
+	{
+		while (s1[i] == s2[j] && s1[i] != '\0')
+		{
+			i++;
+			j++;
+			if (s2[j] == '\0')
+				return ((char *)s1 + i - j);
+		}
+		j = 0;
+		i++;
+	}
+	return (NULL);
 }

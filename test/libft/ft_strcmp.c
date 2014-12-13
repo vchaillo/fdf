@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 23:35:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/13 16:14:46 by valentin         ###   ########.fr       */
+/*   Created: 2014/11/05 19:53:28 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:47:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int		load_window(void);
-
-int		main(int ac, char **av)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (ac == 2)
-		mlx_start(av[1]);
+	int		i;
+
+	i = 0;
+	while ((unsigned char)s1[i] == (unsigned char)s2[i]
+	&& (unsigned char)s1[i] != '\0' && (unsigned char)s2[i] != '\0')
+		i++;
+	if ((unsigned char)s1[i] - (unsigned char)s2[i] > 0)
+		return (1);
+	else if ((unsigned char)s1[i] - (unsigned char)s2[i] == 0)
+		return (0);
 	else
-		printf("FUCK YOU, I WON'T START MUHAHAHAHAHAHA\n");
-	return (0);
+		return (-1);
 }

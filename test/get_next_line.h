@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 23:35:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/13 16:14:46 by valentin         ###   ########.fr       */
+/*   Created: 2014/11/22 08:15:57 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/12/12 17:31:43 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int		load_window(void);
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include "libft/includes/libft.h"
 
-int		main(int ac, char **av)
-{
-	if (ac == 2)
-		mlx_start(av[1]);
-	else
-		printf("FUCK YOU, I WON'T START MUHAHAHAHAHAHA\n");
-	return (0);
-}
+# define BUFF_SIZE 8
+
+int		get_next_line(int const fd, char **line);
+
+#endif

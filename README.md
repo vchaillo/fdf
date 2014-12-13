@@ -8,6 +8,9 @@ Todo_list:
 - Gestion correction des couleurs
 - Gestion correcte de conversion dec hex
 - Utilisation mlx_xpm
+- Parser
+- Demmarer fdf
+- Ajouter gnl a la libft
 
 A faire avant rendu:
 ====================

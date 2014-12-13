@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 23:35:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/13 16:14:46 by valentin         ###   ########.fr       */
+/*   Created: 2014/11/12 19:56:09 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:53:01 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-int		load_window(void);
-
-int		main(int ac, char **av)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	if (ac == 2)
-		mlx_start(av[1]);
-	else
-		printf("FUCK YOU, I WON'T START MUHAHAHAHAHAHA\n");
-	return (0);
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	str = (char *)malloc(sizeof(char *) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s[start] != '\0' && i < len)
+	{
+		str[i] = s[start];
+		start++;
+		i++;
+	}
+	str[len] = '\0';
+	return (str);
 }

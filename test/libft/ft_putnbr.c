@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 23:35:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/13 16:14:46 by valentin         ###   ########.fr       */
+/*   Created: 2014/11/04 18:19:59 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/12/10 23:48:22 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int		load_window(void);
-
-int		main(int ac, char **av)
+void	ft_putnbr(int n)
 {
-	if (ac == 2)
-		mlx_start(av[1]);
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	else if (n >= 0 && n <= 9)
+		ft_putchar(n + '0');
+	else if (n < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(-n);
+	}
 	else
-		printf("FUCK YOU, I WON'T START MUHAHAHAHAHAHA\n");
-	return (0);
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
 }

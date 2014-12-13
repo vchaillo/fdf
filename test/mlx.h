@@ -6,7 +6,7 @@
 /*   By: valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 17:19:23 by valentin          #+#    #+#             */
-/*   Updated: 2014/12/13 04:07:40 by valentin         ###   ########.fr       */
+/*   Updated: 2014/12/13 15:16:35 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include "get_next_line.h"
 
 typedef struct	s_env
 {
 	void	*mlx;
 	void	*win;
 	int	x_rect;
+	char	*path;
 }		t_env;
 
 int	load_window(void);

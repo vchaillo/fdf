@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 23:35:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/13 16:14:46 by valentin         ###   ########.fr       */
+/*   Created: 2014/11/11 23:16:18 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/12/07 21:49:01 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <stdlib.h>
 
-int		load_window(void);
-
-int		main(int ac, char **av)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (ac == 2)
-		mlx_start(av[1]);
-	else
-		printf("FUCK YOU, I WON'T START MUHAHAHAHAHAHA\n");
-	return (0);
+	char	*tmp;
+
+	tmp = (char *)malloc(sizeof(char) * len);
+	ft_strncpy(tmp, src, len);
+	dst = (void *)ft_strncpy(dst, tmp, len);
+	free(tmp);
+	return (dst);
 }

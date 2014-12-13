@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 23:35:21 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/13 16:14:46 by valentin         ###   ########.fr       */
+/*   Created: 2014/11/06 15:28:03 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/12/09 02:22:14 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int		load_window(void);
-
-int		main(int ac, char **av)
+char	*ft_strchr(const char *s, int c)
 {
-	if (ac == 2)
-		mlx_start(av[1]);
-	else
-		printf("FUCK YOU, I WON'T START MUHAHAHAHAHAHA\n");
-	return (0);
+	int		i;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	if (c < 0 || c > 255 || c == '\0')
+		return (char *)(s + ft_strlen(s));
+	while (s[i] != (char)c)
+	{
+		i++;
+		if (s[i] == '\0')
+			return (NULL);
+	}
+	return (char *)(&(s[i]));
 }
