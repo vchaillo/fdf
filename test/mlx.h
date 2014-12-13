@@ -6,7 +6,7 @@
 /*   By: valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 17:19:23 by valentin          #+#    #+#             */
-/*   Updated: 2014/12/13 15:16:35 by valentin         ###   ########.fr       */
+/*   Updated: 2014/12/13 19:25:33 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_env
 	void	*win;
 	int	x_rect;
 	char	*path;
+	char	**map;
 }		t_env;
 
 int	load_window(void);

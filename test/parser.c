@@ -6,30 +6,60 @@
 /*   By: valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/13 14:46:19 by valentin          #+#    #+#             */
-/*   Updated: 2014/12/13 16:06:13 by valentin         ###   ########.fr       */
+/*   Updated: 2014/12/13 19:27:49 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 
-int	create_map(t_env *e)
+int	get_len_tab(t_env *e)
 {
 	int	fd;
-	int	nb_lines;
-	char 	*line;
-	char	*tmp;
-
-	nb_lines = 0;
+	int	i;
+	int	ret;
+	char	*buf;
+	
+	
+	i = 0;
+	buf = ft_strnew(BUFF_SIZE);
 	if (!(fd = open(e->path, O_RDONLY)))
 		exit(0);
-	printf("avant gnl: %s", line);
+	while (ret = read(fd, buf, BUFF_SIZE))
+	{
+		i+= ret;
+	}
+	close(fd);
+	free(buf);
+	return(i);
+}
+
+char	**create_map(t_env *e)
+{
+	int	fd;
+	int	i;
+	int	j;
+	int	len_tab;
+	char 	*line;
+	char 	**tmp;
+	char	**grid;
+
+	i = 0;
+	line = NULL;
+	len_tab = get_len_tab(e);
+	if (!(fd = open(e->path, O_RDONLY)))
+		exit(0);
 	while (get_next_line(fd, &line) == 1)
 	{
-//		ft_putstr("line");
-//		ft_putnbr(nb_lines);
-//		ft_putstr(" = ");
-		ft_putendl(line);
-		nb_lines++;
+		tmp = ft_strsplit(line, ' ');
+		j = 0;
+		grid[i] = tmp[j++];
+		while (tmp[j])
+		{
+			grid[i] = ft_strjoin(grid[i], tmp[j]);
+			j++;
+		}
+		i++;
 	}
-	return (0);
+	ft_memdel((void **)tmp);
+	return (grid);
 }
