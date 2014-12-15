@@ -6,38 +6,38 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:34:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:49:18 by vchaillo         ###   ########.fr       */
+/*   Updated: 2014/12/15 21:42:57 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void			create_map(t_env *e)
+void	create_map(t_env *e)
 {
 	int		fd;
 	int		i;
 	int		tab_len;
 	char	*line;
-	char	**grid;
+	int		**grid;
 
 	i = 0;
 	line = NULL;
 	if (!(fd = open(e->path, O_RDONLY)))
 		exit(0);
 	tab_len = get_tab_len(e);
-	if (!(grid = (char **)malloc(sizeof(char *) * tab_len)))
+	if (!(grid = (int **)malloc(sizeof(int *) * tab_len)))
 		exit(0);
 	while (get_next_line(fd, &line) == 1)
 	{
-		grid[i] = ft_strdup(line);
+		grid[i] = get_int_tab(line);
 		i++;
 	}
 	i = 0;
-	while (grid[i])
-	{
-		ft_putendl(grid[i]);
-		i++;
-	}
+//	while (grid[i])
+//	{
+//		ft_putendl(grid[i]);
+//		i++;
+//	}
 }
 
 int		get_tab_len(t_env *e)
@@ -56,4 +56,20 @@ int		get_tab_len(t_env *e)
 	close(fd);
 	free(buffer);
 	return (i);
+}
+
+int		*get_int_tab(char *line)
+{
+	int		*str;
+	char	**tmp;
+	int		i;
+
+	i = 0;
+	tmp = ft_strsplit(line, ' ');
+	while (tmp[i])
+	{
+		str[i] = ft_atoi(tmp[i]);
+		i++;
+	}
+	return (str);
 }
