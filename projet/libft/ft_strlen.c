@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/04 15:41:11 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/12/10 22:56:46 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+size_t	ft_strlen(const char *s)
 {
-	t_env	e;
+	size_t		i;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+			i++;
+	}
+	return (i);
 }

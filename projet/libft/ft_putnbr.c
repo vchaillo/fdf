@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/04 18:19:59 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/12/10 23:49:47 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+void	ft_putnbr(int n)
 {
-	t_env	e;
-
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	else if (n >= 0 && n <= 9)
+		ft_putchar(n + '0');
+	else if (n < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(-n);
+	}
+	else
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
 }

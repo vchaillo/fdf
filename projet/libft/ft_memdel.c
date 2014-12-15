@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/12 04:05:29 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:51:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int		start_mlx(char *path)
+void	ft_memdel(void **ap)
 {
-	t_env	e;
-
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	if (ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

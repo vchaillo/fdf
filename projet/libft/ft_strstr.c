@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/05 19:43:19 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:47:45 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	t_env	e;
+	int		i;
+	int		j;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	i = 0;
+	j = 0;
+	if (s2[i] == '\0')
+		return ((char *)s1);
+	while (s1[i])
+	{
+		while (s1[i] == s2[j] && s1[i] != '\0')
+		{
+			i++;
+			j++;
+			if (s2[j] == '\0')
+				return ((char *)s1 + i - j);
+		}
+		j = 0;
+		i++;
+	}
+	return (NULL);
 }

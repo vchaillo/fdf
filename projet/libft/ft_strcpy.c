@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/04 21:46:33 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:45:58 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	t_env	e;
+	int		i;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/10 22:33:00 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:44:35 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <unistd.h>
 
-int		start_mlx(char *path)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_env	e;
-
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	write(fd, &c, 1);
 }

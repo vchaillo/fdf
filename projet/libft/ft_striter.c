@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/19 15:25:57 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:53:57 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	t_env	e;
-
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	if (s && f)
+	{
+		while (*s)
+		{
+			(*f)(s);
+			s++;
+		}
+	}
 }

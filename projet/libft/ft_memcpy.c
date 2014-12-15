@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/11 00:28:22 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:49:39 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	t_env	e;
+	char		*ptr1;
+	char		*ptr2;
+	size_t		i;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	i = 0;
+	ptr1 = (char *)dst;
+	ptr2 = (char *)src;
+	while (i < n)
+	{
+		ptr1[i] = ptr2[i];
+		i++;
+	}
+	return (dst);
 }

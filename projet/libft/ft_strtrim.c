@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:39:06 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/13 17:36:07 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:53:41 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
-
-#include <mlx.h>
+#include "libft.h"
 #include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include "libft/includes/libft.h"
 
-typedef struct	s_env
+char	*ft_strtrim(char const *s)
 {
-	void		*mlx;
-	void		*win;
-	char		*path;
-}				t_env;
+	size_t	len;
+	char	*str;
 
-int		start_mlx(char *path);
-void	create_map(t_env *e);
-int		get_tab_len(t_env *e);
-
-# define WIN_H 720
-# define WIN_W 1280
-
-#endif
+	if (s == NULL)
+		return (NULL);
+	while (*s != '\0' && (*s == ' ' || *s == '\n' || *s == '\t'))
+		s++;
+	len = ft_strlen(s);
+	while (len > 0 &&
+	(s[len - 1] == ' ' || s[len - 1] == '\n' || s[len - 1] == '\t'))
+		len--;
+	if (!(str = (char *)malloc(sizeof(*str) * (len + 1))))
+		return (NULL);
+	ft_strncpy(str, s, len);
+	str[len] = '\0';
+	return (str);
+}

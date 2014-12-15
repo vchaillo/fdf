@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/05 18:43:14 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:46:51 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_env	e;
+	size_t		i;
+	size_t		j;
+	size_t		src_len;
+	size_t		dst_len;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	i = 0;
+	j = 0;
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	while (dst[i] && i < size)
+		i++;
+	if (size == i)
+		return (size + src_len);
+	while (src[j] && i < size - 1)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (dst_len + src_len);
 }

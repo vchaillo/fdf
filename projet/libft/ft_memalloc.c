@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/12 03:43:30 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:51:05 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int		start_mlx(char *path)
+void	*ft_memalloc(size_t size)
 {
-	t_env	e;
+	void	*str;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	str = malloc(size);
+	if (str)
+		ft_memset(str, '\0', size);
+	return (str);
 }

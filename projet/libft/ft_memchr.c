@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/11 22:48:12 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:50:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		start_mlx(char *path)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_env	e;
+	size_t				i;
+	unsigned char		*ptr;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	i = 0;
+	ptr = (unsigned char *)s;
+	if (s == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		if (ptr[i] == (unsigned char)c)
+			return (&(ptr[i]));
+		i++;
+	}
+	return (NULL);
 }

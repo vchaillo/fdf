@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/12 19:56:09 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:53:01 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int		start_mlx(char *path)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	t_env	e;
+	size_t	i;
+	char	*str;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	str = (char *)malloc(sizeof(char *) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s[start] != '\0' && i < len)
+	{
+		str[i] = s[start];
+		start++;
+		i++;
+	}
+	str[len] = '\0';
+	return (str);
 }

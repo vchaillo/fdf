@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:22:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:15 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/11 00:40:04 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:49:49 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	if (argc == 2)
+	unsigned char		*ptr1;
+	unsigned char		*ptr2;
+	size_t				i;
+
+	i = 0;
+	ptr1 = (unsigned char *)dst;
+	ptr2 = (unsigned char *)src;
+	if (dst == NULL || src == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		start_mlx(argv[1]);
+		if (ptr2[i] == (unsigned char)c)
+		{
+			ptr1[i] = ptr2[i];
+			return (&(ptr1[i + 1]));
+		}
+		ptr1[i] = ptr2[i];
+		i++;
 	}
-	else
-		ft_putendl("Inser a map here please!");
-	return (0);
+	return (NULL);
 }

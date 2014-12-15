@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 20:17:29 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/22 01:05:12 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:56:28 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int		start_mlx(char *path)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_env	e;
+	t_list	*next_elem;
 
-	e.path = ft_strdup(path);
-	create_map(&e);
-	return (0);
+	if (alst && *alst && *del)
+	{
+		while (*alst)
+		{
+			next_elem = *alst;
+			ft_lstdelone(alst, del);
+			free(*alst);
+			*alst = next_elem->next;
+		}
+		*alst = NULL;
+	}
 }
