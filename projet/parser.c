@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:34:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 21:42:57 by vchaillo         ###   ########.fr       */
+/*   Updated: 2014/12/16 04:57:59 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		get_tab_len(t_env *e)
 	free(buffer);
 	return (i);
 }
-
+/*
 int		*get_int_tab(char *line)
 {
 	int		*str;
@@ -72,4 +72,4 @@ int		*get_int_tab(char *line)
 		i++;
 	}
 	return (str);
-}
+}*/
