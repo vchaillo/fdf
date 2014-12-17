@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   error_msg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valentin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/13 16:49:59 by valentin          #+#    #+#             */
-/*   Updated: 2014/12/17 02:22:55 by valentin         ###   ########.fr       */
+/*   Created: 2014/12/17 02:52:24 by valentin          #+#    #+#             */
+/*   Updated: 2014/12/17 03:01:55 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "fdf.h"
 
-int	draw_map(t_env *e)
+void	open_error(t_env *e)
 {
-	return (0);
+	ft_putstr("Failed to open ");
+	ft_putstr(e->path);
+	ft_putendl(" file");
+	exit(0);
+}
+
+void	malloc_error(void)
+{
+	ft_putendl("Memory allocation error");
+	exit(0);
 }

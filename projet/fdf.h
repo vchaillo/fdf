@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/15 21:41:17 by vchaillo         ###   ########.fr       */
+/*   Updated: 2014/12/17 03:16:24 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,46 @@
 #include <sys/stat.h>
 #include "libft/includes/libft.h"
 
+typedef struct	s_point
+{
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+}		t_point;
+
 typedef struct	s_env
 {
-	void		*mlx;
-	void		*win;
-	char		*path;
-}				t_env;
+	void	*mlx;
+	void	*win;
+	char	*path;
+}		t_env;
 
 int		start_mlx(char *path);
-void	create_map(t_env *e);
+void		create_map(t_env *e);
 int		get_tab_len(t_env *e);
 int		*get_int_tab(char *line);
+int		expose_hook(t_env *e);
+int		draw_map(t_env *e);
+int		key_hook(int keycode, t_env *e);
+void		open_error(t_env *e);
+void		malloc_error(void);
+void		draw_1(t_env *e);
+void		draw_2(t_env *e);
 
 # define WIN_H 720
 # define WIN_W 1280
+
+# define WHITE 0xFFFFFF
+# define BLACK 0x000000
+# define LIGHT_GREY 0x707070
+# define DARK_GREY 0x303030
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+# define YELLOW 0xFFFF00
+# define RED 0xFF0000
+# define PINK 0xFF00FF
+# define ORANGE 0xFF6600
+# define BROWN 0x663300
 
 #endif
