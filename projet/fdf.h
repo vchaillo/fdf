@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/17 03:16:24 by valentin         ###   ########.fr       */
+/*   Updated: 2014/12/17 20:13:22 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,17 @@ typedef struct	s_env
 
 int		start_mlx(char *path);
 void		create_map(t_env *e);
-int		get_tab_len(t_env *e);
-int		*get_int_tab(char *line);
+int		get_grid_len(t_env *e);
+t_point		*get_t_point_tab(char *line);
+int		get_tab_len(char **tab);
+t_point		get_point_infos(char *str, int x);
 int		expose_hook(t_env *e);
 int		draw_map(t_env *e);
 int		key_hook(int keycode, t_env *e);
 void		open_error(t_env *e);
 void		malloc_error(void);
+
+
 void		draw_1(t_env *e);
 void		draw_2(t_env *e);
 

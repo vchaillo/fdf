@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:34:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/17 03:02:24 by valentin         ###   ########.fr       */
+/*   Updated: 2014/12/17 20:20:19 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,60 +16,91 @@ void	create_map(t_env *e)
 {
 	int		fd;
 	int		i;
-	int		tab_len;
+	int		j;
+	int		grid_len;
 	char		*line;
-	char		**grid;
+	t_point		**grid;
 
 	i = 0;
 	line = NULL;
 	if ((fd = open(e->path, O_RDONLY)) == -1)
 		open_error(e);
-	tab_len = get_tab_len(e);
-	if (!(grid = (char **)malloc(sizeof(char *) * tab_len)))
+	grid_len = get_grid_len(e);
+	if (!(grid = (t_point **)malloc(sizeof(t_point *) * grid_len)))
 		malloc_error();
 	while (get_next_line(fd, &line) == 1)
 	{
-		grid[i] = ft_strdup(line);//get_int_tab(line);
+		grid[i] = get_t_point_tab(line);
 		i++;
 	}
 	i = 0;
-	while (grid[i])
+	while (grid[i] != NULL)
 	{
-		ft_putendl(grid[i]);
+		j = 0;
+		while (grid[j] != NULL)
+		{
+			ft_putnbr(grid[i][j].z);
+			j++;
+		}
+		ft_putchar('\n');
 		i++;
 	}
+	close(fd);
 }
 
-int		get_tab_len(t_env *e)
+int		get_grid_len(t_env *e)
 {
 	int		fd;
-	int		i;
+	int		len;
 	int		ret;
 	char		*buffer;
 
-	i = 0;
+	len = 0;
 	buffer = ft_strnew(BUFF_SIZE);
 	if ((fd = open(e->path, O_RDONLY)) == -1)
 		open_error(e);
 	while ((ret = read(fd, buffer, BUFF_SIZE)))
-		i += ret;
+		len += ret;
 	close(fd);
 	free(buffer);
-	return (i);
+	return (len);
 }
-/*
-int		*get_int_tab(char *line)
+
+t_point		*get_t_point_tab(char *line)
 {
-	int		*str;
-	char	**tmp;
+	t_point		*tab;
+	char		**tmp;
+	int		tab_len;
 	int		i;
 
-	i = 0;
 	tmp = ft_strsplit(line, ' ');
-	while (tmp[i])
+	tab_len = get_tab_len(tmp);
+	if(!(tab = (t_point *)malloc(sizeof(t_point) * tab_len)))
+		malloc_error();
+	i = 0;
+	while (tmp[i] != NULL)		//verifier la condition d'arret
 	{
-		str[i] = ft_atoi(tmp[i]);
+		tab[i] = get_point_infos(tmp[i], i);
 		i++;
 	}
-	return (str);
-}*/
+	return (tab);
+}
+
+t_point		get_point_infos(char *str, int x)
+{
+	t_point		point;
+
+	point.x = x;
+	point.z = ft_atoi(str);
+	return (point);
+}
+
+int		get_tab_len(char **tab)
+{
+	int	len;
+
+	len = 0;
+	while (tab[len] != '\0')
+		len++;
+	return (len);
+}
