@@ -5,55 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 19:34:55 by vchaillo          #+#    #+#             */
-/*   Updated: 2014/12/17 20:20:19 by valentin         ###   ########.fr       */
+/*   Created: 2015/01/06 19:19:07 by vchaillo          #+#    #+#             */
+/*   Updated: 2015/01/06 19:55:34 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	create_map(t_env *e)
+t_point		**create_map(t_env *e)
 {
-	int		fd;
-	int		i;
-	int		j;
-	int		grid_len;
-	char		*line;
 	t_point		**grid;
+	char		*line;
+	int			fd;
+	int			i;
 
 	i = 0;
 	line = NULL;
 	if ((fd = open(e->path, O_RDONLY)) == -1)
 		open_error(e);
-	grid_len = get_grid_len(e);
-	if (!(grid = (t_point **)malloc(sizeof(t_point *) * grid_len)))
+	if (!(grid = (t_point **)malloc(sizeof(t_point *) * get_grid_len(e))))
 		malloc_error();
 	while (get_next_line(fd, &line) == 1)
 	{
-		grid[i] = get_t_point_tab(line);
-		i++;
-	}
-	i = 0;
-	while (grid[i] != NULL)
-	{
-		j = 0;
-		while (grid[j] != NULL)
-		{
-			ft_putnbr(grid[i][j].z);
-			j++;
-		}
-		ft_putchar('\n');
+		grid[i] = create_t_point_tab(line);
 		i++;
 	}
 	close(fd);
+	return (grid);
 }
 
-int		get_grid_len(t_env *e)
+t_point		*create_t_point_tab(char *line)
 {
-	int		fd;
-	int		len;
-	int		ret;
+	t_point		*tab;
+	char		**tmp;
+	int			tab_len;
+	int			i;
+
+	i = 0;
+	tmp = ft_strsplit(line, ' ');
+	if (!(tab = (t_point *)malloc(sizeof(t_point) * get_tab_len(tmp))))
+		malloc_error();
+	//to be continue
+}
+
+int			get_grid_len(t_env *e)
+{
 	char		*buffer;
+	int			fd;
+	int			len;
+	int			ret;
 
 	len = 0;
 	buffer = ft_strnew(BUFF_SIZE);
@@ -66,41 +66,12 @@ int		get_grid_len(t_env *e)
 	return (len);
 }
 
-t_point		*get_t_point_tab(char *line)
+int			get_tab_len(char **tab)
 {
-	t_point		*tab;
-	char		**tmp;
-	int		tab_len;
-	int		i;
-
-	tmp = ft_strsplit(line, ' ');
-	tab_len = get_tab_len(tmp);
-	if(!(tab = (t_point *)malloc(sizeof(t_point) * tab_len)))
-		malloc_error();
-	i = 0;
-	while (tmp[i] != NULL)		//verifier la condition d'arret
-	{
-		tab[i] = get_point_infos(tmp[i], i);
-		i++;
-	}
-	return (tab);
-}
-
-t_point		get_point_infos(char *str, int x)
-{
-	t_point		point;
-
-	point.x = x;
-	point.z = ft_atoi(str);
-	return (point);
-}
-
-int		get_tab_len(char **tab)
-{
-	int	len;
+	int			len;
 
 	len = 0;
-	while (tab[len] != '\0')
+	while (tab[len])
 		len++;
 	return (len);
 }
