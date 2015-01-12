@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/01/06 17:40:51 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/12 20:46:05 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int		draw_map(t_env *e)
 {
 	draw_1(e);
-	sleep(1);
-	draw_2(e);
-	sleep(1);
+//	sleep(1);
+//	draw_2(e);
 	return (0);
 }
 
