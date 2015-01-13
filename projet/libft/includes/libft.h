@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:05:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/12 20:19:57 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/13 19:14:31 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 
-# define BUFF_SIZE 8
+# define BUFF_SIZE 512
 
 typedef struct		s_list
 {
