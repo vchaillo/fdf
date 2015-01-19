@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/06 19:19:07 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/13 21:03:06 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/19 18:11:39 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ t_point			**create_map(t_env *e)
 	line = NULL;
 	if ((fd = open(e->path, O_RDONLY)) == -1)
 		open_error(e);
-	if (!(grid = (t_point **)malloc(sizeof(t_point *) * get_grid_len(e))))
+	if (!(grid = (t_point **)malloc(sizeof(t_point *) * get_grid_len(e) + 1)))
 		malloc_error();
 	while (get_next_line(fd, &line) == 1)
 	{
 		grid[i] = create_t_point_tab(line, i);
 		i++;
 	}
+	grid[i++] = '\0';
 	close(fd);
 	return (grid);
 }
@@ -46,7 +47,8 @@ t_point			*create_t_point_tab(char *line, int y)
 		malloc_error();
 	while (tmp[i])
 	{
-		tab[i] = get_point_infos(tmp[i], i, y);
+		if (*tmp[i] != '\n')
+			tab[i] = get_point_infos(tmp[i], i, y);
 		i++;
 	}
 	return (tab);

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/13 21:00:28 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/19 18:12:28 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		start_mlx(char *path)
 	e.win = mlx_new_window(e.mlx, WIN_W, WIN_H, "fdf");
 	e.path = ft_strdup(path);
 	e.map = create_map(&e);
-	while (e.map[i])
+	while (e.map[i] != '\0')
 	{
 		j = 0;
 		while (e.map[i][j].z)
@@ -48,14 +48,15 @@ int		start_mlx(char *path)
 		}
 		i++;
 	}
-	/*ft_putstr("La case 1, 4 : ");
-	ft_putnbr(e.map[1][4].z);
+/*
+	ft_putstr("La case 0, 4 : ");
+	ft_putnbr(e.map[0][4].z);
 	ft_putstr(", ");
-	ft_putnbr(e.map[1][4].y);
+	ft_putnbr(e.map[0][4].y);
 	ft_putstr(", ");
-	ft_putnbr(e.map[1][4].x);
-	ft_putchar('\n');*/
-
+	ft_putnbr(e.map[0][4].x);
+	ft_putchar('\n');
+*/
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_key_hook(e.win, key_hook, &e);
 	mlx_loop(e.mlx);

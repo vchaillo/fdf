@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 15:04:37 by vchaillo          #+#    #+#              #
-#    Updated: 2015/01/12 18:44:28 by vchaillo         ###   ########.fr        #
+#    Updated: 2015/01/19 18:15:41 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -33,7 +33,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME):
-	@gcc -c $(SRCS) $(FLAGS)
+	@gcc -c $(SRCS) $(FLAGS) -I includes
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 	@mkdir $(OBJS_PATH)
