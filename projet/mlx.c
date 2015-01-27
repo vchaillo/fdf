@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/27 17:31:13 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 18:59:08 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,6 @@ int		start_mlx(char *path)
 		}
 		i++;
 	}
-/*
-	ft_putstr("La case 0, 4 : ");
-	ft_putnbr(e.map[0][4].z);
-	ft_putstr(", ");
-	ft_putnbr(e.map[0][4].y);
-	ft_putstr(", ");
-	ft_putnbr(e.map[0][4].x);
-	ft_putchar('\n');
-*/
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_key_hook(e.win, key_hook, &e);
 	mlx_loop(e.mlx);

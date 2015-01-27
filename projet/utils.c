@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 19:31:06 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/19 18:06:13 by valentin         ###   ########.fr       */
+/*   Updated: 2015/01/27 18:59:06 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,15 @@ int				check_char(char *str)
 int				get_tab_len(char **tab)
 {
 	int			len;
+	int			i;
 
+	i = 0;
 	len = 0;
 	while (tab[len])
-		len++;
+	{
+		if (*tab[i] != '\n')
+			len++;
+		i++;
+	}
 	return (len);
 }
