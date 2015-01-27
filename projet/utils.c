@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 19:31:06 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/27 19:13:50 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 19:20:57 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ int				get_tab_len(char **tab)
 			len++;
 		i++;
 	}
-	ft_putnbr(len);
 	return (len);
 }
