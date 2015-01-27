@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/27 18:59:08 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 19:16:12 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		start_mlx(char *path)
 	e.win = mlx_new_window(e.mlx, WIN_W, WIN_H, "fdf");
 	e.path = ft_strdup(path);
 	e.map = create_map(&e);
-	while (e.map[i] != '\0')
+	while (e.map[i])
 	{
 		j = 0;
 		while (e.map[i][j].z)
@@ -46,6 +46,7 @@ int		start_mlx(char *path)
 			ft_putstr(", ");
 			j++;
 		}
+		ft_putchar('\n');
 		i++;
 	}
 	mlx_expose_hook(e.win, expose_hook, &e);
