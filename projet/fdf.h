@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/13 20:53:54 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:49:02 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,11 @@ t_point		*create_t_point_tab(char *line, int y);
 int			get_tab_len(char **tab);
 t_point		get_point_infos(char *str, int x, int y);
 int			expose_hook(t_env *e);
-int			draw_map(t_env *e);
 int			key_hook(int keycode, t_env *e);
 void		open_error(t_env *e);
-void		malloc_error(void);
-
-void		draw_1(t_env *e);
-void		draw_2(t_env *e);
+void		malloc_error(void);			
+int			draw_map(t_env *e);
+int			draw_line(int x1, int y1, int x2, int y2, t_env *e);
 
 # define WIN_H 720
 # define WIN_W 1280

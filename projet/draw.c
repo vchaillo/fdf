@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/01/13 19:20:55 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:48:58 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,26 @@
 
 int		draw_map(t_env *e)
 {
-	draw_1(e);
-//	sleep(1);
-//	draw_2(e);
+	t_point		p1;
+	t_point		p2;
+
+	p1.x = 100;
+	p1.y = WIN_H - 100;
+	p2.x = WIN_W - 100;
+	p2.y = 100;
+	draw_line(p1.x, p1.y, p2.x, p2.y, e);
 	return (0);
 }
 
-void	draw_1(t_env *e)
+int		draw_line(int x1, int y1, int x2, int y2, t_env *e)
 {
-	int	x;
-	int	y;
+	int x;
 
-	y = 100;
-	while (y < WIN_H - 100)
+	x = x1;
+	while (x <= x2)
 	{
-		x = 100;
-		while (x < WIN_W - 100)
-		{
-			mlx_pixel_put(e->mlx, e->win, x, y, YELLOW);
-			x++;
-		}
-		y++;
+		mlx_pixel_put(e->mlx, e->win, x, y1 + ((y2 - y1) * (x - x1)) / (x2 - x1), ORANGE);
+		x++;
 	}
-}
-
-void	draw_2(t_env *e)
-{
-	int	x;
-	int	y;
-
-	y = 100;
-	while (y < WIN_H - 100)
-	{
-		x = 100;
-		while (x < WIN_W - 100)
-		{
-			mlx_pixel_put(e->mlx, e->win, x, y, BLUE);
-			x++;
-		}
-		y++;
-	}
+	return (0);
 }

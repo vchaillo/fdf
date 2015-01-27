@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/06 19:19:07 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/19 18:11:39 by valentin         ###   ########.fr       */
+/*   Updated: 2015/01/27 17:42:01 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_point			*create_t_point_tab(char *line, int y)
 	tmp = ft_strsplit(line, ' ');
 	if (!(tab = (t_point *)malloc(sizeof(t_point) * get_tab_len(tmp))))
 		malloc_error();
-	while (tmp[i])
+	while (tmp[i] != '\0')
 	{
 		if (*tmp[i] != '\n')
 			tab[i] = get_point_infos(tmp[i], i, y);
