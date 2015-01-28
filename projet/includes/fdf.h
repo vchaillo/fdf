@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/28 15:10:28 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 18:12:57 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ typedef struct	s_env
 {
 	void		*mlx;
 	void		*win;
+	void		*img;
+	char		*data;
+	int			size;
+	int			endian;
+	int			bpp;
 	char		*path;
 	t_point		**map;
 }				t_env;
@@ -50,6 +55,9 @@ void			open_error(t_env *e);
 void			malloc_error(void);
 int				draw_map(t_env *e);
 int				draw_line(t_point p1, t_point p2, t_env *e);
+int				draw_image(t_env *e);
+void			put_color_on_pixel(t_env *e, int color, int x, int y);
+int				select_a_color(int x, int y);
 
 # define WIN_H 720
 # define WIN_W 1280
