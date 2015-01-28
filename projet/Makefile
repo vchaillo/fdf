@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2015/01/27 21:10:13 by vchaillo         ###   ########.fr        #
+#    Updated: 2015/01/28 15:13:27 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ $(NAME):
 	@echo "\033[32mfdf was created\033[0m"
 
 norm:
-	@norminette $(SRCS)
+	@echo "\033[32mnorminette...\033[0m"
+	@norminette **/*.[ch]
 
 clean:
 	@rm -rf $(OBJS_PATH)

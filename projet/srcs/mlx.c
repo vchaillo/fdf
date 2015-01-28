@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/27 19:22:04 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 15:03:45 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		start_mlx(char *path)
 	while (e.map[i])
 	{
 		j = 0;
-		while (e.map[i][j].z)
+		while (e.map[i][j].z != '\0')
 		{
 			ft_putnbr(e.map[i][j].z);
 			ft_putchar(' ');

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/01/27 20:52:22 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 15:09:39 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@ int		draw_map(t_env *e)
 	p1.y = WIN_H - 100;
 	p2.x = WIN_W - 100;
 	p2.y = 100;
-	draw_line(p1.x, p1.y, p2.x, p2.y, e);
+	draw_line(p1, p2, e);
 	return (0);
 }
 
-int		draw_line(int x1, int y1, int x2, int y2, t_env *e)
+int		draw_line(t_point p1, t_point p2, t_env *e)
 {
 	int x;
 
-	x = x1;
-	while (x <= x2)
+	x = p1.x;
+	while (x <= p2.x)
 	{
-		mlx_pixel_put(e->mlx, e->win, x, y1 + ((y2 - y1) * (x - x1)) / (x2 - x1), ORANGE);
+		mlx_pixel_put(e->mlx, e->win, x,\
+			p1.y + ((p2.y - p1.y) * (x - p1.x)) / (p2.x - p1.x), ORANGE);
 		x++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/06 19:19:07 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/01/27 20:44:39 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/28 14:58:26 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_point			*create_t_point_tab(char *line, int y)
 			tab[i] = get_point_infos(tmp[i], i, y);
 		i++;
 	}
+	tab[i++].x = '\0';
+	tab[i++].y = '\0';
 	tab[i++].z = '\0';
 	return (tab);
 }
