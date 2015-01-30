@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/01/28 19:42:01 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/01/30 17:55:58 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,23 @@ int		draw_map(t_env *e)
 	p2.x = WIN_W - 100;
 	p2.y = WIN_H - 100;
 	draw_france_flag(e);
+	draw_line_img(p1, p2, e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	draw_line(p1, p2, e);
+//	draw_line(p1, p2, e);
 	return (0);
+}
+
+void	draw_line_img(t_point p1, t_point p2, t_env *e)
+{
+	int 	x;
+
+	x = p1.x;
+	while (x <= p2.x)
+	{
+		put_color_on_pixel(e, BLACK, x, \
+			p1.y + ((p2.y - p1.y) * (x - p1.x)) / (p2.x - p1.x));
+		x++;
+	}
 }
 
 void	put_color_on_pixel(t_env *e, int color, int x, int y)
@@ -51,7 +65,7 @@ int		select_a_color(int x, int y)
 		color = RED;
 	return (color);
 }
-
+/*
 int		draw_line(t_point p1, t_point p2, t_env *e)
 {
 	int x;
@@ -65,7 +79,7 @@ int		draw_line(t_point p1, t_point p2, t_env *e)
 	}
 	return (0);
 }
-
+*/
 int		draw_france_flag(t_env *e)
 {
 	int		x;
