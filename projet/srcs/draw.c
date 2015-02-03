@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/02 21:55:20 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/03 19:16:35 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	draw_map(t_env *e)
 {
-/*	t_point	p1;
+	t_point	p1;
 	t_point	p2;
 
 	p1.x = 100;
 	p1.y = 100;
 	p2.x = WIN_W - 100;
 	p2.y = WIN_H - 100;
-	draw_line_img(p1, p2, e);*/
+	draw_line_img(p1, p2, e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }
 
