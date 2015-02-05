@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/03 19:16:00 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/04 17:44:07 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,11 @@ int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == 65307)
 		exit (0);
-	if (keycode == 49)
-	{
+	if (keycode == 49 || keycode == 38)
 		e->color_mode = 1;
-		draw_map(e);
-	}
-	if (keycode == 48)
-	{
+	if (keycode == 48 || keycode == 224)
 		e->color_mode = 0;
-		draw_map(e);
-	}
+	draw_map(e);
 	ft_putnbr(keycode);
 	ft_putchar('\n');
 	return (0);

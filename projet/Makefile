@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2015/02/02 19:25:09 by vchaillo         ###   ########.fr        #
+#    Updated: 2015/02/04 17:40:49 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ SRCS_NAME = main.c\
 		   	mlx.c\
 		   	parser.c\
 		   	draw.c\
+		   	lines.c\
 		   	utils.c\
 			error_msg.c\
 			colors.c\
+			color_mode.c\
 
 SRCS_PATH = ./srcs/
 

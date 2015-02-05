@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/02 21:54:21 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/04 18:07:23 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,43 +21,46 @@
 # include <sys/stat.h>
 # include "../libft/includes/libft.h"
 
-typedef struct	s_point
+typedef struct		s_point
 {
-	int			x;
-	int			y;
-	int			z;
-	int			color;
-}				t_point;
+	int		x;
+	int		y;
+	int		z;
+	int		color;
+}			t_point;
 
-typedef struct	s_env
+typedef struct		s_env
 {
 	void		*mlx;
 	void		*win;
 	void		*img;
 	char		*data;
-	int			size;
-	int			endian;
-	int			bpp;
+	int		size;
+	int		endian;
+	int		bpp;
 	char		*path;
-	int			color_mode;
+	int		color_mode;
 	t_point		**map;
-}				t_env;
+}			t_env;
 
 void			start_mlx(char *path);
-int				expose_hook(t_env *e);
-int				key_hook(int keycode, t_env *e);
+int			expose_hook(t_env *e);
+int			key_hook(int keycode, t_env *e);
 t_point			**create_map(t_env *e);
 t_point			*create_t_point_tab(char *line, int y);
 t_point			get_point_infos(char *str, int x, int y);
-int				get_grid_len(t_env *e);
-int				check_char(char *str);
-int				get_tab_len(char **tab);
+int			get_grid_len(t_env *e);
+int			check_char(char *str);
+int			get_tab_len(char **tab);
 void			open_error(t_env *e);
 void			malloc_error(void);
 void			draw_map(t_env *e);
-void			draw_line_img(t_point p1, t_point p2, t_env *e);
-void			put_color_on_pixel(t_env *e, int color, int x, int y);
-int				select_french_color(int x, int y);
+void			draw_lines(t_point p1, t_point p2, t_env *e);
+void			draw_line_1(t_point p1, t_point p2, t_env *e);
+void			draw_line_2(t_point p1, t_point p2, t_env *e);
+void			fill_pixel(t_env *e, int color, int x, int y);
+int			select_color_mode(int color_mode, int x, int y);
+int			select_french_color(int x, int y);
 
 # define WIN_H 720
 # define WIN_W 1280
