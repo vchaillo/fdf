@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/05 19:45:56 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/06 18:44:13 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 # define STD 0
 # define FRENCH 1
 # define STROBO 2
+
+# define ISO 0
+# define PARA 1
+# define CONIC 2
 
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
