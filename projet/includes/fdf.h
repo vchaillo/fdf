@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/06 18:44:13 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/09 21:23:04 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct		s_point
 	int				x;
 	int				y;
 	int				z;
+	int				x2d;
+	int				y2d;
 	int				color;
 }					t_point;
 
@@ -62,7 +64,10 @@ typedef struct		s_env
 	int				endian;
 	int				bpp;
 	char			*path;
+	int				proj_mode;
 	int				color_mode;
+	int				max_w;
+	int				max_h;
 	t_point			**map;
 }					t_env;
 
@@ -70,7 +75,7 @@ void				start_mlx(char *path);
 int					expose_hook(t_env *e);
 int					key_hook(int keycode, t_env *e);
 t_point				**create_map(t_env *e);
-t_point				*create_t_point_tab(char *line, int y);
+t_point				*create_t_point_tab(t_env *e, char *line, int y);
 t_point				get_point_infos(char *str, int x, int y);
 int					get_grid_len(t_env *e);
 int					check_char(char *str);
@@ -84,5 +89,9 @@ void				draw_line_2(t_point p1, t_point p2, t_env *e);
 void				fill_pixel(t_env *e, int color, int x, int y);
 int					select_color_mode(int color_mode, int x, int y);
 int					select_french_color(int x, int y);
+void				calculate(t_point p, t_env *e);
+void				calculate_iso(t_point p, t_env *e);
+void				calculate_para(t_point p, t_env *e);
+void				calculate_conic(t_point p, t_env *e);
 
 #endif

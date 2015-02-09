@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/05 19:45:53 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/09 21:11:35 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	draw_map(t_env *e)
 {
-	t_point	p1;		//test pour dx > dy
+/*	t_point	p1;		//test pour dx > dy
 	t_point	p2;
 	t_point	p3;
 	t_point	p4;
@@ -42,11 +42,28 @@ void	draw_map(t_env *e)
 	p7.y = 100;
 	p8.x = WIN_W / 2 - 100;
 	p8.y = WIN_H - 100;
+*/
+	draw_lines(e->map[0][0], e->map[0][1], e);
+//	draw_lines(p3, p4, e);
+//	draw_lines(p6, p5, e);
+//	draw_lines(p8, p7, e);
+	int		i;
+	int		j;
 
-	draw_lines(p2, p1, e);
-	draw_lines(p3, p4, e);
-	draw_lines(p6, p5, e);
-	draw_lines(p8, p7, e);
+	i = 0;
+	while (i < e->max_h)
+	{
+		j = 0;
+		while (j < e->max_w)
+		{
+			draw_lines(e->map[i][j], e->map[i][j + 1], e);
+			ft_putnbr(e->map[i][j].z);
+			ft_putchar(' ');
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
+	}
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 }
 

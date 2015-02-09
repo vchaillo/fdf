@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 18:47:12 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/05 19:45:37 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/09 21:23:02 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ void	draw_line_1(t_point p1, t_point p2, t_env *e)
 	int	dy;
 	int	color;
 
-	dx = p2.x - p1.x;
-	dy = p2.y - p1.y;
-	x = p1.x;
-	while (x <= p2.x)
+	dx = p2.x2d - p1.x2d;
+	dy = p2.y2d - p1.y2d;
+	x = p1.x2d;
+	while (x <= p2.x2d)
 	{
-		ycal = p1.y + (dy * (x - p1.x)) / dx;
-		color = select_color_mode(e->color_mode, x, ycal);
-		fill_pixel(e, color, x, ycal);
+		ycal = p1.y2d + (dy * (x - p1.x2d)) / dx;
+		if (x <= WIN_W && ycal <= WIN_H)
+		{
+			color = select_color_mode(e->color_mode, x, ycal);
+			fill_pixel(e, color, x, ycal);
+		}
 		x++;
 	}
 }
@@ -40,14 +43,17 @@ void	draw_line_2(t_point p1, t_point p2, t_env *e)
 	int	dy;
 	int	color;
 
-	dx = p2.x - p1.x;
-	dy = p2.y - p1.y;
-	y = p1.y;
-	while (y <= p2.y)
+	dx = p2.x2d - p1.x2d;
+	dy = p2.y2d - p1.y2d;
+	y = p1.y2d;
+	while (y <= p2.y2d)
 	{
-		xcal = p1.x + (dx * (y - p1.y)) / dy;
-		color = select_color_mode(e->color_mode, xcal, y);
-		fill_pixel(e, color, xcal, y);
+		xcal = p1.x2d + (dx * (y - p1.y2d)) / dy;
+		if (xcal <= WIN_W && y <= WIN_H)
+		{
+			color = select_color_mode(e->color_mode, xcal, y);
+			fill_pixel(e, color, xcal, y);
+		}
 		y++;
 	}
 }

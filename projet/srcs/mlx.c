@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/05 19:08:42 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/09 19:16:04 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ int		key_hook(int keycode, t_env *e)
 void	start_mlx(char *path)
 {
 	t_env	e;
-//	int		i;
-//	int		j;
 
-//	i = 0;
 	e.mlx = mlx_init();
 	e.win = mlx_new_window(e.mlx, WIN_W, WIN_H, "fdf");
 	e.img = mlx_new_image(e.mlx, WIN_W, WIN_H);
@@ -46,21 +43,6 @@ void	start_mlx(char *path)
 	e.path = ft_strdup(path);
 	e.map = create_map(&e);
 	e.data = mlx_get_data_addr(e.img, &(e.bpp), &(e.size), &(e.endian));
-
-	/*	while (e.map[i]) //affiche tous les z pour chaque point.
-	{
-		j = 0;
-		while (e.map[i][j].z != '\0')
-		{
-			ft_putnbr(e.map[i][j].z);
-			ft_putchar(' ');
-			j++;
-		}
-		ft_putchar('\n');
-		i++;
-	}
-
-*/
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_key_hook(e.win, key_hook, &e);
 	mlx_loop(e.mlx);
