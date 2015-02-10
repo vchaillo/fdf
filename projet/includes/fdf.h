@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/09 21:23:04 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/10 18:24:45 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <sys/stat.h>
 # include "../libft/includes/libft.h"
 
-# define WIN_H 720
-# define WIN_W 1280
+# define WIN_W 1920
+# define WIN_H 1080
 
 # define STD 0
 # define FRENCH 1
@@ -89,9 +89,9 @@ void				draw_line_2(t_point p1, t_point p2, t_env *e);
 void				fill_pixel(t_env *e, int color, int x, int y);
 int					select_color_mode(int color_mode, int x, int y);
 int					select_french_color(int x, int y);
-void				calculate(t_point p, t_env *e);
-void				calculate_iso(t_point p, t_env *e);
-void				calculate_para(t_point p, t_env *e);
-void				calculate_conic(t_point p, t_env *e);
+void				calculate(t_point *p, t_env *e);
+void				calculate_iso(t_point *p, t_env *e);
+void				calculate_para(t_point *p, t_env *e);
+void				calculate_conic(t_point *p, t_env *e);
 
 #endif

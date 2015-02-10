@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 18:47:12 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/09 21:23:02 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/10 18:23:15 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_line_1(t_point p1, t_point p2, t_env *e)
 	dx = p2.x2d - p1.x2d;
 	dy = p2.y2d - p1.y2d;
 	x = p1.x2d;
-	while (x <= p2.x2d)
+	while (x < p2.x2d)
 	{
 		ycal = p1.y2d + (dy * (x - p1.x2d)) / dx;
 		if (x <= WIN_W && ycal <= WIN_H)
@@ -46,7 +46,7 @@ void	draw_line_2(t_point p1, t_point p2, t_env *e)
 	dx = p2.x2d - p1.x2d;
 	dy = p2.y2d - p1.y2d;
 	y = p1.y2d;
-	while (y <= p2.y2d)
+	while (y < p2.y2d)
 	{
 		xcal = p1.x2d + (dx * (y - p1.y2d)) / dy;
 		if (xcal <= WIN_W && y <= WIN_H)
