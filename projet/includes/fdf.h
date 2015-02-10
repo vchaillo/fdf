@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/10 18:24:45 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/10 18:53:54 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct		s_env
 	char			*path;
 	int				proj_mode;
 	int				color_mode;
+	char			*zoom;
 	int				max_w;
 	int				max_h;
 	t_point			**map;

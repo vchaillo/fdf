@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/10 18:23:38 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/10 18:53:56 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	start_mlx(char *path)
 	e.mlx = mlx_init();
 	e.win = mlx_new_window(e.mlx, WIN_W, WIN_H, "fdf");
 	e.img = mlx_new_image(e.mlx, WIN_W, WIN_H);
+	e.zoom = "3";
 	e.color_mode = 0;
 	e.path = ft_strdup(path);
 	e.map = create_map(&e);
