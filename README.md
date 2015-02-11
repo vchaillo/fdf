@@ -7,7 +7,8 @@ Todo list:
 - Creation d'un arc en ciel
 - Creation d'un menu
 - Utilisation de mlx_hook
-- Options de deplacement, zoom, couleurs
+- Options de deplacement, zoom, couleur
+- Un menu bandeau avec du mouse hook
 
 A faire avant rendu:
 ====================
