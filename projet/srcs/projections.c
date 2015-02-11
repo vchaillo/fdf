@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 18:37:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/10 18:49:05 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 00:24:25 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 void	calculate(t_point *p, t_env *e)
 {
-	int		a;
-
-	a = 10 * ft_atoi(e->zoom);
-//	(void)a;
-	p->x2d = (p->x * a) + (WIN_W / 2) - (e->max_w / 2 * a);
-	p->y2d = (p->y * a) + (WIN_H / 2) - (e->max_h / 2 * a);
+	p->x2d = (p->x * 30) + (WIN_W / 2) - (e->max_w / 2 * 30);
+	p->y2d = (p->y * 30) + (WIN_H / 2) - (e->max_h / 2 * 30);
 	if (e->proj_mode == ISO)
 		calculate_iso(p, e);
 	else if (e->proj_mode == PARA)
