@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/12 04:21:44 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 04:53:19 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ typedef struct		s_env
 	int				endian;
 	int				bpp;
 	char			*path;
+	int				zoom;
+	int				move_ud;
+	int				move_lr;
+	int				peaks;
 	int				proj_mode;
 	int				color_mode;
 	int				max_w;
