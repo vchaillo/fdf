@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/12 03:27:57 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 04:25:24 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	draw_map(t_env *e)
 		}
 		i++;
 	}
-	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+	expose_hook(e);
 }
 
 void	draw_lines(t_point p1, t_point p2, t_env *e)
@@ -39,8 +39,6 @@ void	draw_lines(t_point p1, t_point p2, t_env *e)
 	int		dx;
 	int		dy;
 
-	calculate(&p1, e);
-	calculate(&p2, e);
 	if ((dx = p2.x2d - p1.x2d) < 0)
 		dx *= -1;
 	if ((dy = p2.y2d - p1.y2d) < 0)
@@ -59,6 +57,15 @@ void	draw_lines(t_point p1, t_point p2, t_env *e)
 		else
 			draw_line_2(p2, p1, e);
 	}
+}
+
+void	erase_image(t_env *e)
+{
+	ft_bzero(e->data, WIN_W * WIN_H * 4);
+	calculate(e);
+	draw_map(e);
+	expose_hook(e);
+
 }
 
 void	fill_pixel(t_env *e, int color, int x, int y)
