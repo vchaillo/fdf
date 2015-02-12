@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/12 08:00:26 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 09:08:50 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct		s_env
 void				start_mlx(char *path);
 int					expose_hook(t_env *e);
 int					key_hook(int keycode, t_env *e);
+int					mouse_hook(int button, int x, int y, t_env *e);
 t_point				**create_map(t_env *e);
 t_point				*create_t_point_tab(t_env *e, char *line, int y);
 t_point				get_point_infos(char *str, int x, int y);
@@ -89,6 +90,8 @@ int					check_char(char *str);
 int					get_tab_len(char **tab);
 void				open_error(t_env *e);
 void				malloc_error(void);
+void				draw_main_menu(t_env *e);
+void				draw_header(t_env *e);
 void				draw_map(t_env *e);
 void				draw_lines(t_point p1, t_point p2, t_env *e);
 void				draw_line_1(t_point p1, t_point p2, t_env *e);
@@ -101,7 +104,10 @@ void				calculate_iso(t_point *p, t_env *e);
 void				calculate_para(t_point *p, t_env *e);
 void				calculate_conic(t_point *p, t_env *e);
 void				erase_image(t_env *e);
-void				draw_main_menu(t_env *e);
 void				vanilla_mode(t_env *e);
+void				move_lr(t_env *e, int keycode);
+void				move_ud(t_env *e, int keycode);
+void				change_peaks(t_env *e, int keycode);
+void				change_zoom(t_env *e, int keycode);
 
 #endif
