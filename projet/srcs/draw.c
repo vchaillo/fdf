@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/12 04:38:33 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 05:22:05 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ void	draw_lines(t_point p1, t_point p2, t_env *e)
 
 void	erase_image(t_env *e)
 {
-	ft_bzero(e->data, WIN_W * WIN_H * 4);
+	mlx_destroy_image(e->mlx, e->img);
+	e->img = mlx_new_image(e->mlx, WIN_W, WIN_H);
+	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	calculate(e);
 	draw_map(e);
 	expose_hook(e);
