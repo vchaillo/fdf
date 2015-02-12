@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2015/02/10 18:11:26 by vchaillo         ###   ########.fr        #
+#    Updated: 2015/02/12 07:01:47 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS_NAME = main.c\
 			colors.c\
 			color_mode.c\
 			projections.c\
+			menus.c\
 
 SRCS_PATH = ./srcs/
 
@@ -48,7 +49,7 @@ all: $(NAME)
 $(NAME):
 	@make -C libft/ fclean
 	@make -C libft/
-	@gcc $(FLAGS) $(LIBFT_H) $(FDF_H) -c $(SRCS)
+	@gcc -g $(FLAGS) $(LIBFT_H) $(FDF_H) -c $(SRCS)
 	@mkdir $(OBJS_PATH)
 	@mv $(OBJS_NAME) $(OBJS_PATH)
 	@gcc -o $(NAME) $(OBJS) $(LIBFT) $(LIB_MLX)

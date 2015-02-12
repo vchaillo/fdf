@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/12 05:11:57 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 08:00:26 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@
 # define ISO 0
 # define PARA 1
 # define CONIC 2
+
+# define OFF 0
+# define ON 1
 
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
@@ -98,5 +101,7 @@ void				calculate_iso(t_point *p, t_env *e);
 void				calculate_para(t_point *p, t_env *e);
 void				calculate_conic(t_point *p, t_env *e);
 void				erase_image(t_env *e);
+void				draw_main_menu(t_env *e);
+void				vanilla_mode(t_env *e);
 
 #endif

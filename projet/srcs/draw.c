@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/12 05:22:05 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 07:50:11 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	erase_image(t_env *e)
 	calculate(e);
 	draw_map(e);
 	expose_hook(e);
-
 }
 
 void	fill_pixel(t_env *e, int color, int x, int y)

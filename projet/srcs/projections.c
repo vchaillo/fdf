@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 18:37:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/12 05:03:43 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 07:50:29 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	calculate_iso(t_point *p, t_env *e)
 	p->x2d = (p->x * e->zoom) - (e->max_w / 4 * e->zoom);
 	p->y2d = (p->y * e->zoom) - (e->max_h / 4 * e->zoom);
 	p->x2d = p->x2d - p->y2d + WIN_W / 2 + e->move_lr;
-	p->y2d = (-p->z * e->peaks) + (p->x * e->zoom) * 0.5 + p->y2d * 0.5 + WIN_H / 3 + e->move_ud;
+	p->y2d = (-p->z * e->peaks) + (p->x * e->zoom) * 0.5 + p->y2d * 0.5 \
+		+ WIN_H / 3 + e->move_ud;
 }
 
 void	calculate_para(t_point *p, t_env *e)
@@ -55,4 +56,14 @@ void	calculate_conic(t_point *p, t_env *e)
 {
 	(void)p;
 	(void)e;
+}
+
+void	vanilla_mode(t_env *e)
+{
+	e->color_mode = STD;
+	e->proj_mode = ISO;
+	e->move_ud = 0;
+	e->move_lr = 0;
+	e->peaks = 15;
+	e->zoom = 50;
 }

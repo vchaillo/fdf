@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/12 05:23:17 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/12 08:00:12 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int		expose_hook(t_env *e)
 {
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+	mlx_string_put(e->mlx, e->win, 20, 20, YELLOW, \
+			"FDF by vchaillo, Project of 42");
 	return (0);
 }
 
@@ -46,6 +48,8 @@ int		key_hook(int keycode, t_env *e)
 		e->zoom += 10;
 	if (keycode == 45)
 		e->zoom -= 10;
+	if (keycode == 65293)
+		vanilla_mode(e);
 	erase_image(e);
 	ft_putnbr(keycode);
 	ft_putchar('\n');
@@ -56,20 +60,16 @@ void	start_mlx(char *path)
 {
 	t_env	e;
 
-	e.mlx = mlx_init();
+	if (!(e.mlx = mlx_init()))
+		exit (0);
 	e.win = mlx_new_window(e.mlx, WIN_W, WIN_H, "fdf");
 	e.img = mlx_new_image(e.mlx, WIN_W, WIN_H);
-	e.color_mode = STD;
-	e.proj_mode = ISO;
-	e.move_ud = 0;
-	e.move_lr = 0;
-	e.peaks = 15;
-	e.zoom = 50;
+	vanilla_mode(&e);
 	e.path = ft_strdup(path);
 	e.map = create_map(&e);
 	e.data = mlx_get_data_addr(e.img, &(e.bpp), &(e.size), &(e.endian));
 	calculate(&e);
-	draw_map(&e);
+	draw_main_menu(&e);
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_key_hook(e.win, key_hook, &e);
 	mlx_loop(e.mlx);
