@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/12 09:08:50 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/13 15:36:08 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,8 @@ void				move_lr(t_env *e, int keycode);
 void				move_ud(t_env *e, int keycode);
 void				change_peaks(t_env *e, int keycode);
 void				change_zoom(t_env *e, int keycode);
+void				strings(t_env *e);
+void				white_strings(t_env *e);
+void				dark_strings(t_env *e);
 
 #endif

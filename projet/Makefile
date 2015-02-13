@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2015/02/12 08:27:48 by vchaillo         ###   ########.fr        #
+#    Updated: 2015/02/13 15:14:45 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS_NAME = main.c\
 			color_mode.c\
 			projections.c\
 			menus.c\
-			moves.c
+			moves.c\
+			strings.c\
 
 SRCS_PATH = ./srcs/
 

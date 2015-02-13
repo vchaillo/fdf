@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/12 09:02:09 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/13 15:46:19 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,7 @@ int		expose_hook(t_env *e)
 {
 	draw_header(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	mlx_string_put(e->mlx, e->win, 7, 30, WHITE, \
-			"FDF by vchaillo, Project of 42");
-	mlx_string_put(e->mlx, e->win, 8, 31, DARK_GREY, \
-			"FDF by vchaillo, Project of 42");
-	mlx_string_put(e->mlx, e->win, WIN_W - 140, 30, WHITE, \
-			"RESET DISPLAY");
-	mlx_string_put(e->mlx, e->win, WIN_W - 139, 31, DARK_GREY, \
-			"RESET DISPLAY");
+	strings(e);
 	return (0);
 }
 
@@ -31,13 +24,13 @@ int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == 65307)
 		exit (0);
-	if (keycode == 48)
+	if (keycode == 48 || keycode == 224)
 		e->color_mode = STD;
-	if (keycode == 49)
+	if (keycode == 49 || keycode == 38)
 		e->color_mode = FRENCH;
-	if (keycode == 65457)
+	if (keycode == 65457 || keycode == 65436)
 		e->proj_mode = ISO;
-	if (keycode == 65458)
+	if (keycode == 65458 || keycode == 65433)
 		e->proj_mode = PARA;
 	if (keycode == 65361 || keycode == 65363)
 		move_lr(e, keycode);
@@ -47,7 +40,7 @@ int		key_hook(int keycode, t_env *e)
 		change_peaks(e, keycode);
 	if (keycode == 61 || keycode == 45)
 		change_zoom(e, keycode);
-	if (keycode == 65293)
+	if (keycode == 65438)
 		vanilla_mode(e);
 	erase_image(e);
 	ft_putnbr(keycode);
@@ -59,6 +52,10 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 {
 	if (button == 1 && y < WIN_H / 20 && x > WIN_W - 192)
 		vanilla_mode(e);
+	if (button == 1 && y < WIN_H / 20 && x > WIN_W - 384 && x < WIN_W - 192)
+		e->proj_mode = ISO;
+	if (button == 1 && y < WIN_H / 20 && x > WIN_W - 576 && x < WIN_W - 384)
+		e->proj_mode = PARA;
 	erase_image(e);
 	return (0);
 }
