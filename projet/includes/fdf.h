@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/13 15:36:08 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/13 16:49:18 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,16 @@
 # define PINK 0xFF00FF
 # define ORANGE 0xFF6600
 # define BROWN 0x663300
+
+# define GREY_1 0xB1B1B1
+# define GREY_2 0xA3A3A3
+# define GREY_3 0x949494
+# define GREY_4 0x868686
+# define GREY_5 0x787878
+# define GREY_6 0x696969
+# define GREY_7 0x5B5B5B
+# define GREY_8 0x4C4C4C
+# define GREY_9 0x3E3E3E
 
 typedef struct		s_point
 {
