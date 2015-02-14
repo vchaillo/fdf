@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 18:47:12 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/13 15:37:35 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/14 23:08:42 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	draw_line_1(t_point p1, t_point p2, t_env *e)
 		ycal = p1.y2d + (dy * (x - p1.x2d)) / dx;
 		if (x < WIN_W && x > 0 && ycal < WIN_H && ycal > 0)
 		{
-			color = select_color_mode(e->color_mode, x, ycal);
+			color = select_color_mode(e->color_mode, x, ycal, p1, p2);
 			fill_pixel(e, color, x, ycal);
 		}
 		x++;
@@ -51,7 +51,7 @@ void	draw_line_2(t_point p1, t_point p2, t_env *e)
 		xcal = p1.x2d + (dx * (y - p1.y2d)) / dy;
 		if (xcal < WIN_W && xcal > 0 && y < WIN_H && y > 0)
 		{
-			color = select_color_mode(e->color_mode, xcal, y);
+			color = select_color_mode(e->color_mode, xcal, y, p1, p2);
 			fill_pixel(e, color, xcal, y);
 		}
 		y++;

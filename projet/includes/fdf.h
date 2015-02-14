@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/13 16:49:18 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/14 23:09:23 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@
 # define WIN_W 1920
 # define WIN_H 1080
 
+# define CASE_H (WIN_H / 20)
+# define CASE_W (WIN_W / 10)
+# define TEXT_H (CASE_H / 8) * 5
+# define TEXT_W (CASE_W / 10) * 3
+
 # define STD 0
 # define FRENCH 1
-# define STROBO 2
+# define WHITE_BLUE 2
+# define STROBO 3
 
 # define ISO 0
 # define PARA 1
@@ -41,21 +47,12 @@
 # define DARK_GREY 0x303030
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
+# define LIGHT_BLUE 0x00CCFF
 # define YELLOW 0xFFFF00
 # define RED 0xFF0000
 # define PINK 0xFF00FF
 # define ORANGE 0xFF6600
 # define BROWN 0x663300
-
-# define GREY_1 0xB1B1B1
-# define GREY_2 0xA3A3A3
-# define GREY_3 0x949494
-# define GREY_4 0x868686
-# define GREY_5 0x787878
-# define GREY_6 0x696969
-# define GREY_7 0x5B5B5B
-# define GREY_8 0x4C4C4C
-# define GREY_9 0x3E3E3E
 
 typedef struct		s_point
 {
@@ -107,8 +104,9 @@ void				draw_lines(t_point p1, t_point p2, t_env *e);
 void				draw_line_1(t_point p1, t_point p2, t_env *e);
 void				draw_line_2(t_point p1, t_point p2, t_env *e);
 void				fill_pixel(t_env *e, int color, int x, int y);
-int					select_color_mode(int color_mode, int x, int y);
-int					select_french_color(int x, int y);
+int				select_color_mode(int color_mode, int x, int y, t_point p1, t_point p2);
+int				select_french_color(int x);
+int				select_blue_and_white(t_point p1, t_point p2);
 void				calculate(t_env *e);
 void				calculate_iso(t_point *p, t_env *e);
 void				calculate_para(t_point *p, t_env *e);
@@ -120,7 +118,5 @@ void				move_ud(t_env *e, int keycode);
 void				change_peaks(t_env *e, int keycode);
 void				change_zoom(t_env *e, int keycode);
 void				strings(t_env *e);
-void				white_strings(t_env *e);
-void				dark_strings(t_env *e);
 
 #endif

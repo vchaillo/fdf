@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 18:37:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/13 15:38:09 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/14 23:31:44 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	vanilla_mode(t_env *e)
 	e->proj_mode = ISO;
 	e->move_ud = 0;
 	e->move_lr = 0;
-	e->peaks = 15;
+	e->peaks = 5;
 	e->zoom = 50;
 }

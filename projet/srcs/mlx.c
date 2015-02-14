@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/13 16:07:01 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/14 23:14:07 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		key_hook(int keycode, t_env *e)
 		e->color_mode = STD;
 	if (keycode == 49 || keycode == 38)
 		e->color_mode = FRENCH;
+	if (keycode == 233)
+		e->color_mode = WHITE_BLUE;
 	if (keycode == 65457 || keycode == 65436)
 		e->proj_mode = ISO;
 	if (keycode == 65458 || keycode == 65433)
@@ -50,11 +52,11 @@ int		key_hook(int keycode, t_env *e)
 
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
-	if (button == 1 && y < WIN_H / 20 && x > WIN_W - 192)
+	if (button == 1 && y < CASE_H && x > CASE_W * 10)
 		vanilla_mode(e);
-	if (button == 1 && y < WIN_H / 20 && x > WIN_W - 384 && x < WIN_W - 192)
+	if (button == 1 && y < CASE_H && x > CASE_W * 8 && x < CASE_W * 9)
 		e->proj_mode = ISO;
-	if (button == 1 && y < WIN_H / 20 && x > WIN_W - 576 && x < WIN_W - 384)
+	if (button == 1 && y < CASE_H && x > CASE_W * 7 && x < CASE_W * 8)
 		e->proj_mode = PARA;
 	erase_image(e);
 	return (0);
