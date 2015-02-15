@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/15 21:25:40 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/15 23:10:01 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	start_mlx(char *path)
 	e.data = mlx_get_data_addr(e.img, &(e.bpp), &(e.size), &(e.endian));
 	calculate(&e);
 	draw_map(&e);
-	draw_menu(&e);
 	draw_header(&e);
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_mouse_hook(e.win, mouse_hook, &e);

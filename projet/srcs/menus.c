@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 06:54:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/15 21:17:03 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/15 23:07:47 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	draw_menu(t_env *e)
 	int		y;
 
 	y = CASE_H + 1;
-	while (y < WIN_H)
+	while (y < WIN_H / 2)
 	{
 		x = 1;
 		while (x < CASE_W)
