@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/14 23:09:23 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/15 19:59:02 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,9 @@ void				draw_lines(t_point p1, t_point p2, t_env *e);
 void				draw_line_1(t_point p1, t_point p2, t_env *e);
 void				draw_line_2(t_point p1, t_point p2, t_env *e);
 void				fill_pixel(t_env *e, int color, int x, int y);
-int				select_color_mode(int color_mode, int x, int y, t_point p1, t_point p2);
-int				select_french_color(int x);
-int				select_blue_and_white(t_point p1, t_point p2);
+int					color_mode(int color_mode, int x, t_point p1, t_point p2);
+int					select_french_color(int x);
+int					select_blue_and_white(t_point p1, t_point p2);
 void				calculate(t_env *e);
 void				calculate_iso(t_point *p, t_env *e);
 void				calculate_para(t_point *p, t_env *e);
@@ -117,6 +117,6 @@ void				move_lr(t_env *e, int keycode);
 void				move_ud(t_env *e, int keycode);
 void				change_peaks(t_env *e, int keycode);
 void				change_zoom(t_env *e, int keycode);
-void				strings(t_env *e);
+void				put_strings(t_env *e);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/14 23:14:07 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/15 20:08:35 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		expose_hook(t_env *e)
 {
 	draw_header(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	strings(e);
+	put_strings(e);
 	return (0);
 }
 
@@ -28,7 +28,7 @@ int		key_hook(int keycode, t_env *e)
 		e->color_mode = STD;
 	if (keycode == 49 || keycode == 38)
 		e->color_mode = FRENCH;
-	if (keycode == 233)
+	if (keycode == 50 || keycode == 233)
 		e->color_mode = WHITE_BLUE;
 	if (keycode == 65457 || keycode == 65436)
 		e->proj_mode = ISO;
@@ -42,7 +42,7 @@ int		key_hook(int keycode, t_env *e)
 		change_peaks(e, keycode);
 	if (keycode == 61 || keycode == 45)
 		change_zoom(e, keycode);
-	if (keycode == 65438)
+	if (keycode == 65456 || keycode == 65438)
 		vanilla_mode(e);
 	erase_image(e);
 	ft_putnbr(keycode);
@@ -52,7 +52,7 @@ int		key_hook(int keycode, t_env *e)
 
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
-	if (button == 1 && y < CASE_H && x > CASE_W * 10)
+	if (button == 1 && y < CASE_H && x > CASE_W * 9 && x < CASE_W * 10)
 		vanilla_mode(e);
 	if (button == 1 && y < CASE_H && x > CASE_W * 8 && x < CASE_W * 9)
 		e->proj_mode = ISO;
