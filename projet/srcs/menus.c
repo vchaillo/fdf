@@ -6,27 +6,24 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 06:54:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/14 21:11:54 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/15 21:17:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_main_menu(t_env *e)
+void	draw_menu(t_env *e)
 {
 	int		x;
 	int		y;
 
-	y = 1;
+	y = CASE_H + 1;
 	while (y < WIN_H)
 	{
 		x = 1;
-		while (x < WIN_W)
+		while (x < CASE_W)
 		{
-			if (x % 20 == 0 && y % 20 == 0)
-				fill_pixel(e, YELLOW, x, y);
-			else
-				fill_pixel(e, BLACK, x, y);
+			fill_pixel(e, DARK_GREY, x, y);
 			x++;
 		}
 		y++;

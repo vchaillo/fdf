@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 08:20:13 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/14 23:35:30 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/15 20:52:58 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	change_peaks(t_env *e, int keycode)
 void	change_zoom(t_env *e, int keycode)
 {
 	if (keycode == 61)
-		e->zoom += 10;
+		e->zoom += 3;
 	else if (keycode == 45)
-		e->zoom -= 10;
+		e->zoom -= 3;
 }

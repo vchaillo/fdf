@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/15 20:08:35 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/15 21:25:40 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		expose_hook(t_env *e)
 {
-	draw_header(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	put_strings(e);
 	return (0);
@@ -52,12 +51,19 @@ int		key_hook(int keycode, t_env *e)
 
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
-	if (button == 1 && y < CASE_H && x > CASE_W * 9 && x < CASE_W * 10)
-		vanilla_mode(e);
-	if (button == 1 && y < CASE_H && x > CASE_W * 8 && x < CASE_W * 9)
-		e->proj_mode = ISO;
+	if (button == 1 && y < CASE_H && x > 0 && x < CASE_W)
+	{
+		if (e->menu == ON)
+			e->menu = OFF;
+		else
+			e->menu = ON;
+	}
 	if (button == 1 && y < CASE_H && x > CASE_W * 7 && x < CASE_W * 8)
 		e->proj_mode = PARA;
+	if (button == 1 && y < CASE_H && x > CASE_W * 8 && x < CASE_W * 9)
+		e->proj_mode = ISO;
+	if (button == 1 && y < CASE_H && x > CASE_W * 9 && x < CASE_W * 10)
+		vanilla_mode(e);
 	erase_image(e);
 	return (0);
 }
@@ -70,12 +76,14 @@ void	start_mlx(char *path)
 		exit (0);
 	e.win = mlx_new_window(e.mlx, WIN_W, WIN_H, "fdf");
 	e.img = mlx_new_image(e.mlx, WIN_W, WIN_H);
-	vanilla_mode(&e);
 	e.path = ft_strdup(path);
 	e.map = create_map(&e);
+	vanilla_mode(&e);
 	e.data = mlx_get_data_addr(e.img, &(e.bpp), &(e.size), &(e.endian));
 	calculate(&e);
-	draw_main_menu(&e);
+	draw_map(&e);
+	draw_menu(&e);
+	draw_header(&e);
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_mouse_hook(e.win, mouse_hook, &e);
 	mlx_key_hook(e.win, key_hook, &e);

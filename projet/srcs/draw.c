@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/15 19:57:55 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/15 21:27:01 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ void	erase_image(t_env *e)
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	calculate(e);
 	draw_map(e);
+	draw_header(e);
+	if (e->menu == ON)
+		draw_menu(e);
 	expose_hook(e);
 }
 

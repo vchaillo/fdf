@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/15 19:59:02 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/15 21:27:15 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ typedef struct		s_env
 	int				color_mode;
 	int				max_w;
 	int				max_h;
+	int				max_z;
+	int				menu;
 	t_point			**map;
 }					t_env;
 
@@ -91,13 +93,13 @@ int					key_hook(int keycode, t_env *e);
 int					mouse_hook(int button, int x, int y, t_env *e);
 t_point				**create_map(t_env *e);
 t_point				*create_t_point_tab(t_env *e, char *line, int y);
-t_point				get_point_infos(char *str, int x, int y);
+t_point				get_point_infos(t_env *e, char *str, int x, int y);
 int					get_grid_len(t_env *e);
 int					check_char(char *str);
 int					get_tab_len(char **tab);
 void				open_error(t_env *e);
 void				malloc_error(void);
-void				draw_main_menu(t_env *e);
+void				draw_menu(t_env *e);
 void				draw_header(t_env *e);
 void				draw_map(t_env *e);
 void				draw_lines(t_point p1, t_point p2, t_env *e);
@@ -118,5 +120,6 @@ void				move_ud(t_env *e, int keycode);
 void				change_peaks(t_env *e, int keycode);
 void				change_zoom(t_env *e, int keycode);
 void				put_strings(t_env *e);
+void				put_menu_strings(t_env *e);
 
 #endif
