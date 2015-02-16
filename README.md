@@ -6,6 +6,8 @@ Todo list:
 - Creation d'un arc en ciel
 - Options degrade et rotation
 - Lecture appronfondie des mans
+- Resoudre latence put_string
+- Utiliser une variable calculs ON OFF
 
 A faire avant rendu:
 ====================

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 08:20:13 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/16 02:58:15 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/16 03:35:01 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	move_lr(t_env *e, int keycode)
 {
 	if (keycode == 65361)
-		e->move_lr -= 30;
+		e->move_lr -= 50;
 	else if (keycode == 65363)
-		e->move_lr += 30;
+		e->move_lr += 50;
 }
 
 void	move_ud(t_env *e, int keycode)
 {
 	if (keycode == 65364)
-		e->move_ud += 30;
+		e->move_ud += 50;
 	else if (keycode == 65362)
-		e->move_ud -= 30;
+		e->move_ud -= 50;
 }
 
 void	change_peaks(t_env *e, int keycode)
