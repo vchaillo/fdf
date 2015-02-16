@@ -4,7 +4,6 @@ fdf
 Todo list:
 ==========
 - Creation d'un arc en ciel
-- Utilisation de mlx_hook
 - Options degrade et rotation
 - Lecture appronfondie des mans
 
