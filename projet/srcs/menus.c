@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/12 06:54:32 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/15 23:07:47 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/16 03:05:26 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	draw_menu(t_env *e)
 	int		x;
 	int		y;
 
-	y = CASE_H + 1;
-	while (y < WIN_H / 2)
+	y = 1;
+	while (y < IMG_H / 2)
 	{
 		x = 1;
 		while (x < CASE_W)
@@ -36,17 +36,29 @@ void	draw_header(t_env *e)
 	int		y;
 
 	y = 1;
-	while (y < CASE_H)
+	while (y < HEAD_H)
 	{
 		x = 1;
 		while (x < WIN_W)
 		{
 			if (!(x % CASE_W))
-				fill_pixel(e, BLACK, x, y);
+				fill_head_pixel(e, BLACK, x, y);
 			else
-				fill_pixel(e, DARK_GREY, x, y);
+				fill_head_pixel(e, DARK_GREY, x, y);
 			x++;
 		}
 		y++;
 	}
+}
+
+void	fill_head_pixel(t_env *e, int color, int x, int y)
+{
+	int		i;
+
+	i = x * 4 + y * e->size_head;
+	e->data_head[i] = color % 256;
+	color /= 256;
+	e->data_head[i + 1] = color % 256;
+	color /= 256;
+	e->data_head[i + 2] = color % 256;
 }

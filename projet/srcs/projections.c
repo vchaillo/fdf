@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/09 18:37:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/15 23:09:56 by vchaillo         ###   ########.fr       */
+/*   Updated: 2015/02/16 03:03:34 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,27 @@ void	calculate(t_env *e)
 
 void	calculate_iso(t_point *p, t_env *e)
 {
+	float		k1;
+	float		k2;
+
+	k1 = 0.5;
+	k2 = 1;
 	p->x2d = (p->x * e->zoom) - (e->max_w / 2 * e->zoom);
 	p->y2d = (p->y * e->zoom) - (e->max_h / 2 * e->zoom);
 	p->x2d = p->x2d - p->y2d + WIN_W / 2 + e->move_lr;
-	p->y2d = (-p->z * e->peaks) + (p->x * e->zoom) * 0.5 + p->y2d * 0.5 \
+	p->y2d = (-p->z * e->peaks) + (p->x * e->zoom) * k1 + p->y2d * k2 \
 		+ WIN_H / 3 + e->move_ud;
 }
 
 void	calculate_para(t_point *p, t_env *e)
 {
+	float		k;
+
+	k = 1;
 	p->x2d = (p->x * e->zoom) - (e->max_w / 2 * e->zoom);
 	p->y2d = (p->y * e->zoom) - (e->max_h / 2 * e->zoom);
 	p->x2d = p->x2d - (p->z * e->peaks) + WIN_W / 2 + e->move_lr;
-	p->y2d = p->y2d + -1 * 0.5 * (p->z * e->peaks) + WIN_H / 3 + e->move_ud;
+	p->y2d = p->y2d + -1 * k * (p->z * e->peaks) + WIN_H / 3 + e->move_ud;
 }
 
 void	calculate_conic(t_point *p, t_env *e)
@@ -64,7 +72,7 @@ void	vanilla_mode(t_env *e)
 	e->proj_mode = ISO;
 	e->move_ud = 0;
 	e->move_lr = 0;
-	e->peaks = 15;
+	e->peaks = 5;
 	e->zoom = (WIN_W / e->max_w / 8) + (WIN_H / e->max_h / 3);
 	e->menu = OFF;
 }
