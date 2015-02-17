@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/15 18:29:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/17 04:27:38 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/17 06:04:47 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	put_head_strings(t_env *e)
 {
 	mlx_string_put(e->mlx, e->win, (CASE_W * 1) + TEXT_W, TEXT_H, WHITE, \
-			"FRENCH COLOR");
+			" FRENCH COLOR");
 	mlx_string_put(e->mlx, e->win, (CASE_W * 2) + TEXT_W, TEXT_H, WHITE, \
-			"WHITE BLUE COLOR");
+			"  MARS COLOR");
 	mlx_string_put(e->mlx, e->win, (CASE_W * 3) + TEXT_W, TEXT_H, WHITE, \
-			"EARTH COLOR");
+			" EARTH COLOR");
 	mlx_string_put(e->mlx, e->win, (CASE_W * 4) + TEXT_W, TEXT_H, WHITE, \
 			"STANDARD COLOR");
 	mlx_string_put(e->mlx, e->win, (CASE_W * 5) + TEXT_W, TEXT_H, WHITE, \

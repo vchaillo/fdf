@@ -19,7 +19,7 @@ void	color_key_hook(int keycode, t_env *e)
 	if (keycode == 49 || keycode == 38)
 		e->color_mode = FRENCH;
 	if (keycode == 50 || keycode == 233)
-		e->color_mode = WHITE_BLUE;
+		e->color_mode = MARS;
 	if (/*keycode == ?? || */keycode == 34)
 		e->color_mode = EARTH;
 }

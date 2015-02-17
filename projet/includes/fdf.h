@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/17 04:20:13 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/17 06:04:13 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 # define STD 0
 # define FRENCH 1
-# define WHITE_BLUE 2
+# define MARS 2
 # define EARTH 3
 
 # define ISO 0
@@ -54,8 +54,10 @@
 # define LIGHT_BLUE 0x00CCFF
 # define YELLOW 0xFFFF00
 # define RED 0xFF0000
+# define MARS_RED 0x8F1B00
 # define PINK 0xFF00FF
 # define ORANGE 0xFF9900
+# define MARS_ORANGE 0xAF3B00
 # define BROWN 0x663300
 
 typedef struct			s_point
@@ -116,8 +118,9 @@ void				draw_line_2(t_point p1, t_point p2, t_env *e);
 void				fill_pixel(t_env *e, int color, int x, int y);
 void				fill_head_pixel(t_env *e, int color, int x, int y);
 int				color_mode(int color_mode, int x, t_point p1, t_point p2);
+int				select_standard_color(t_point p1, t_point p2);
 int				select_french_color(int x);
-int				select_blue_and_white(t_point p1, t_point p2);
+int				select_mars_color(t_point p1, t_point p2);
 int				select_earth_color(t_point p1, t_point p2);
 void				calculate(t_env *e);
 void				calculate_iso(t_point *p, t_env *e);
