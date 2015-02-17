@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/16 03:31:37 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/17 04:25:30 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,11 @@ int		key_hook(int keycode, t_env *e)
 {
 	if (keycode == 65307)
 		exit (0);
-	if (keycode == 48 || keycode == 224)
-		e->color_mode = STD;
-	if (keycode == 49 || keycode == 38)
-		e->color_mode = FRENCH;
-	if (keycode == 50 || keycode == 233)
-		e->color_mode = WHITE_BLUE;
-	if (/*keycode == 50 || */keycode == 34)
-		e->color_mode = EARTH;
-	if (keycode == 65457 || keycode == 65436)
-		e->proj_mode = ISO;
-	if (keycode == 65458 || keycode == 65433)
-		e->proj_mode = PARA;
-	if (keycode == 65361 || keycode == 65363)
-		move_lr(e, keycode);
-	if (keycode == 65364 || keycode == 65362)
-		move_ud(e, keycode);
-	if (keycode == 65451 || keycode == 65453)
-		change_peaks(e, keycode);
-	if (keycode == 61 || keycode == 45)
-		change_zoom(e, keycode);
 	if (keycode == 65456 || keycode == 65438)
 		vanilla_mode(e);
+	color_key_hook(keycode, e);
+	projection_key_hook(keycode, e);
+	move_key_hook(keycode, e);
 	erase_image(e);
 	ft_putnbr(keycode);
 	ft_putchar('\n');
@@ -62,10 +45,10 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 		else
 			e->menu = ON;
 	}
-	if (button == 1 && y < CASE_H && x > CASE_W * 7 && x < CASE_W * 8)
-		e->proj_mode = PARA;
-	if (button == 1 && y < CASE_H && x > CASE_W * 8 && x < CASE_W * 9)
-		e->proj_mode = ISO;
+	if (button == 1 && y < CASE_H && x > CASE_W * 1 && x < CASE_W * 5)
+		color_mouse_hook(e, x);
+	if (button == 1 && y < CASE_H && x > CASE_W * 7 && x < CASE_W * 9)
+		projection_mouse_hook(e, x);
 	if (button == 1 && y < CASE_H && x > CASE_W * 9 && x < CASE_W * 10)
 		vanilla_mode(e);
 	erase_image(e);

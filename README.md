@@ -3,11 +3,11 @@ fdf
 
 Todo list:
 ==========
-- Creation d'un arc en ciel
 - Options degrade et rotation
-- Lecture appronfondie des mans
 - Resoudre latence put_string
-- Utiliser une variable calculs ON OFF
+- Resoudre le show / hide
+- Certaines maps segfault...
+- Creation d'un arc en ciel
 
 A faire avant rendu:
 ====================
@@ -15,6 +15,7 @@ A faire avant rendu:
 - Verfier les headers
 - Verifier les fonctions interdites
 - Gestion d'erreur
+- Test sur des grandes maps
 
 =============
 Project of 42

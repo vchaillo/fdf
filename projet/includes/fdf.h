@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/16 03:39:27 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/17 04:20:13 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
 # define LIGHT_GREY 0x707070
-# define DARK_GREY 0x303030
+# define DARK_GREY 0x202020
 # define GREEN 0x00FF00
 # define GRASS_GREEN 0x669933
 # define BLUE 0x0000FF
@@ -55,7 +55,7 @@
 # define YELLOW 0xFFFF00
 # define RED 0xFF0000
 # define PINK 0xFF00FF
-# define ORANGE 0xFF6600
+# define ORANGE 0xFF9900
 # define BROWN 0x663300
 
 typedef struct			s_point
@@ -91,6 +91,7 @@ typedef struct			s_env
 	int			max_h;
 	int			max_z;
 	int			menu;
+	int			calcul;
 	t_point			**map;
 }				t_env;
 
@@ -130,5 +131,14 @@ void				change_peaks(t_env *e, int keycode);
 void				change_zoom(t_env *e, int keycode);
 void				put_head_strings(t_env *e);
 void				put_menu_strings(t_env *e);
+void				put_strings_1(t_env *e);
+void				put_strings_2(t_env *e);
+void				move_key_hook(int keycode, t_env *e);
+void				color_key_hook(int keycode, t_env *e);
+void				projection_key_hook(int keycode, t_env *e);
+void				rotation_key_hook(int keycode, t_env *e);
+void				projection_mouse_hook(t_env *e, int x);
+void				color_mouse_hook(t_env *e, int x);
+void				rotation_mouse_hook(t_env *e, int x);
 
 #endif

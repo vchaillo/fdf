@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2015/02/15 19:58:25 by vchaillo         ###   ########.fr        #
+#    Updated: 2015/02/17 04:16:06 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRCS_NAME = main.c\
 			menus.c\
 			moves.c\
 			strings.c\
+			key_hook.c\
+			mouse_hook.c\
 
 SRCS_PATH = ./srcs/
 
