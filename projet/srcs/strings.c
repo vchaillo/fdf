@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/15 18:29:38 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/17 06:04:47 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/18 02:27:21 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,20 @@ void	put_head_strings(t_env *e)
 
 void	put_menu_strings(t_env *e)
 {
-/*	if (e->menu == ON)
+	if (e->menu == ON)
+	{
+		mlx_string_put(e->mlx, e->win, TEXT_W, TEXT_H, DARK_GREY, \
+			"SHOW COMMANDS");
 		mlx_string_put(e->mlx, e->win, TEXT_W, TEXT_H, ORANGE, \
 			"HIDE COMMANDS");
-	else*/
+	}
+	else
+	{
+		mlx_string_put(e->mlx, e->win, TEXT_W, TEXT_H, DARK_GREY, \
+			"HIDE COMMANDS");
 		mlx_string_put(e->mlx, e->win, TEXT_W, TEXT_H, ORANGE, \
 			"SHOW COMMANDS");
+	}
 	if (e->menu == ON)
 	{
 		put_strings_1(e);
