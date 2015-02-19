@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/17 06:04:13 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/19 16:10:02 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct			s_env
 	int			max_z;
 	int			menu;
 	int			calcul;
+	int			rotation;
 	t_point			**map;
 }				t_env;
 
@@ -143,5 +144,7 @@ void				rotation_key_hook(int keycode, t_env *e);
 void				projection_mouse_hook(t_env *e, int x);
 void				color_mouse_hook(t_env *e, int x);
 void				rotation_mouse_hook(t_env *e, int x);
+void				rotation_left(t_env *e);
+void				rotation_right(t_env *e);
 
 #endif

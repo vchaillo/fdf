@@ -23,6 +23,8 @@ void	color_mouse_hook(t_env *e, int x)
 
 void	rotation_mouse_hook(t_env *e, int x)
 {
-	(void)e;
-	(void)x;
+	if (x < CASE_W * 6)
+		rotation_left(e);
+	else if (x < CASE_W * 7)
+		rotation_right(e);
 }
