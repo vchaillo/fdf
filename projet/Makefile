@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2015/02/19 17:06:33 by valentin         ###   ########.fr        #
+#    Updated: 2015/02/20 14:49:01 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRCS_NAME = main.c\
 			strings.c\
 			key_hook.c\
 			mouse_hook.c\
-			rotations.c\
 
 SRCS_PATH = ./srcs/
 

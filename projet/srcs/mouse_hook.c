@@ -20,11 +20,11 @@ void	color_mouse_hook(t_env *e, int x)
 	else if (x < CASE_W * 5)
 		e->color_mode = STD;
 }
-
+/*
 void	rotation_mouse_hook(t_env *e, int x)
 {
 	if (x < CASE_W * 6)
 		rotation_left(e);
 	else if (x < CASE_W * 7)
 		rotation_right(e);
-}
+}*/

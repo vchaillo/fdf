@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/17 03:59:31 by valentin         ###   ########.fr       */
+/*   Updated: 2015/02/23 03:35:12 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ void	draw_map(t_env *e)
 			if (i < e->max_h - 1)
 				draw_lines(e->map[i][j], e->map[i + 1][j], e);
 			j++;
+			ft_putstr("boucle infinie!!!! et j = ");
+			ft_putnbr(j);
+			ft_putchar('\n');
 		}
 		i++;
 	}
