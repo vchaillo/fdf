@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/22 04:21:53 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:57:46 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	(void)e;
-}
+	t_list	*new;
+	t_list	*origin;
+	t_list	*prev;
 
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	if (lst && *f)
+	{
+		new = (*f)(lst);
+		prev = new;
+		origin = new;
+		lst = lst->next;
+		while (lst)
+		{
+			new = (*f)(lst);
+			if (new == NULL)
+				return (NULL);
+			prev->next = new;
+			prev = new;
+			lst = lst->next;
+		}
+		new->next = NULL;
+		return (origin);
+	}
+	return (NULL);
 }

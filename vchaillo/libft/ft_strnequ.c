@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/12 19:06:05 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:52:37 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	(void)e;
-}
-
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	if (s1 && s2)
+	{
+		if (ft_strncmp(s1, s2, n) == 0)
+			return (1);
+		return (0);
+	}
+	return (0);
 }

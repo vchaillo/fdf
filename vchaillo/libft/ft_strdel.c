@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/12 18:27:17 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:52:19 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+void	ft_strdel(char **as)
 {
-	(void)e;
-}
-
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	if (as != NULL)
+		ft_memdel((void **)as);
 }

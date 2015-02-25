@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/22 03:52:40 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:56:42 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	(void)e;
-}
-
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	if (alst && new)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
 }

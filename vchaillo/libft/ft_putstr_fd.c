@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/10 22:34:32 by vchaillo          #+#    #+#             */
+/*   Updated: 2015/02/17 08:17:56 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <unistd.h>
 
-void	rotation_left(t_env *e)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	(void)e;
-}
-
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	if (s != NULL)
+		write(fd, s, ft_strlen(s));
 }

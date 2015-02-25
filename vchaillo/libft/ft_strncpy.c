@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/04 22:46:04 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:46:14 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	(void)e;
-}
+	size_t	i;
 
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	i = 0;
+	while (i != n)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < n)
+	{
+		while (dst[i])
+		{
+			dst[i] = '\0';
+			i++;
+		}
+	}
+	return (dst);
 }

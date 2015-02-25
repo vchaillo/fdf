@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/19 15:31:48 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:54:04 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	(void)e;
-}
+	unsigned int	i;
 
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	i = 0;
+	if (s && f)
+	{
+		while (*s)
+		{
+			(*f)(i, s);
+			s++;
+			i++;
+		}
+	}
 }

@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/19 15:35:44 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:54:31 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
+#include <stdlib.h>
 
-void	rotation_left(t_env *e)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	(void)e;
-}
+	char		*str;
+	size_t		len;
+	size_t		i;
 
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	i = 0;
+	if (s && f)
+	{
+		len = ft_strlen(s);
+		if (!(str = (char *)malloc(sizeof(*str) * (len + 1))))
+			return (NULL);
+		while (s[i] != '\0')
+		{
+			str[i] = (*f)(s[i]);
+			i++;
+		}
+		str[i] = '\0';
+		return (str);
+	}
+	return (NULL);
 }

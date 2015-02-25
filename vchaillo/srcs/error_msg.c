@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   error_msg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/12/17 02:52:24 by valentin          #+#    #+#             */
+/*   Updated: 2015/02/18 18:16:49 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	rotation_left(t_env *e)
+void	open_error(t_env *e)
 {
-	(void)e;
+	ft_putstr("Failed to open ");
+	ft_putstr(e->path);
+	ft_putendl(" file");
+	exit(0);
 }
 
-void	rotation_right(t_env *e)
+void	malloc_error(void)
 {
-	(void)e;
+	ft_putendl("Memory allocation error");
+	exit(0);
 }

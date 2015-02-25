@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/06 18:58:42 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:47:07 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+char	*ft_strrchr(const char *s, int c)
 {
-	(void)e;
-}
+	int		i;
 
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	i = ft_strlen(s);
+	if (s == NULL)
+		return (NULL);
+	while (s[i] != (char)c)
+	{
+		i--;
+		if (i < 0)
+			return (NULL);
+	}
+	return (char *)(&(s[i]));
 }

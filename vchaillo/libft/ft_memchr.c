@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/11 22:48:12 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:50:03 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	(void)e;
-}
+	size_t				i;
+	unsigned char		*ptr;
 
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	i = 0;
+	ptr = (unsigned char *)s;
+	if (s == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		if (ptr[i] == (unsigned char)c)
+			return (&(ptr[i]));
+		i++;
+	}
+	return (NULL);
 }

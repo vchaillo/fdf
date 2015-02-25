@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 15:16:00 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:16:02 by vchaillo         ###   ########.fr       */
+/*   Created: 2014/11/05 18:43:14 by vchaillo          #+#    #+#             */
+/*   Updated: 2014/11/22 07:46:51 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	rotation_left(t_env *e)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	(void)e;
-}
+	size_t		i;
+	size_t		j;
+	size_t		src_len;
+	size_t		dst_len;
 
-void	rotation_right(t_env *e)
-{
-	(void)e;
+	i = 0;
+	j = 0;
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	while (dst[i] && i < size)
+		i++;
+	if (size == i)
+		return (size + src_len);
+	while (src[j] && i < size - 1)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (dst_len + src_len);
 }
