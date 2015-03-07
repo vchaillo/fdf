@@ -60,7 +60,7 @@ void	draw_lines(t_point p1, t_point p2, t_env *e)
 
 void	erase_image(t_env *e)
 {
-	mlx_destroy_image(e->mlx, e->img);
+	//mlx_destroy_image(e->mlx, e->img);
 	e->img = mlx_new_image(e->mlx, WIN_W, IMG_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	calculate(e);

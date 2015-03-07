@@ -33,7 +33,7 @@ t_point			**create_map(t_env *e)
 		i++;
 	}
 	e->max_h = i;
-	grid[i++] = '\0';
+	grid[i++] = NULL;
 	close(fd);
 	return (grid);
 }

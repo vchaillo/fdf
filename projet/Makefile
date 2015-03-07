@@ -41,20 +41,24 @@ OBJS = $(addprefix $(OBJS_PATH),$(OBJS_NAME))
 
 FLAGS = -Wall -Wextra -Werror
 
-LIBFT = -Llibft -lft
-
 LIBFT_H = -I libft/includes/
 
-FDF_H = -I includes/
+LIBFT = -Llibft -lft
 
-LIB_MLX = -L/usr/X11/lib -lmlx -lXext -lX11
+MLX_H = -I minilibx/
+
+LIB_MLX = -Lminilibx -lmlx -framework OpenGl -framework Appkit
+
+FDF_H = -I includes/
 
 all: $(NAME)
 
 $(NAME):
 	@make -C libft/ fclean
 	@make -C libft/
-	@gcc -g $(FLAGS) $(LIBFT_H) $(FDF_H) -c $(SRCS)
+	@make -C minilibx/ clean
+	@make -C minilibx/
+	@gcc -g $(FLAGS) $(LIBFT_H) $(FDF_H) $(MLX_H) -c $(SRCS)
 	@mkdir $(OBJS_PATH)
 	@mv $(OBJS_NAME) $(OBJS_PATH)
 	@gcc -o $(NAME) $(OBJS) $(LIBFT) $(LIB_MLX)

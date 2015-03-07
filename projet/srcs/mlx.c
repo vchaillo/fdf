@@ -16,8 +16,8 @@ int		expose_hook(t_env *e)
 {
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, HEAD_H);
 	mlx_put_image_to_window(e->mlx, e->win, e->img_head, 0, 0);
-	put_menu_strings(e);
-	put_head_strings(e);
+	//put_menu_strings(e);
+	//put_head_strings(e);
 	return (0);
 }
 
@@ -71,7 +71,7 @@ void	start_mlx(char *path)
 	e.data_head = mlx_get_data_addr(e.img_head, &(e.bpp), &(e.size_head),
 		&(e.endian));
 	calculate(&e);
-	draw_map(&e);
+	//draw_map(&e);
 	draw_header(&e);
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_mouse_hook(e.win, mouse_hook, &e);
