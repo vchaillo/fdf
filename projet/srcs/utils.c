@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 19:31:06 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/13 15:37:24 by valentin         ###   ########.fr       */
+/*   Updated: 2015/03/22 08:56:27 by vchaillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,25 @@ int				check_char(char *str)
 
 int				get_tab_len(char **tab)
 {
+	int		len;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	len = 2;
+	while (tab[i][j])
+	{
+		ft_putendl("You find me!");
+		j++;
+		i++;
+	}
+	return (len);
+}
+
+/*
+int				get_tab_len(char **tab)
+{
 	int			len;
 	int			i;
 
@@ -68,8 +87,11 @@ int				get_tab_len(char **tab)
 	while (tab[len])
 	{
 		if (*tab[i] != '\n')
+		{
 			len++;
+			ft_putendl("You find me!");
+		}
 		i++;
 	}
 	return (len);
-}
+}*/

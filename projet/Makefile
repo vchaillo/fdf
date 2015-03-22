@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2015/02/25 15:14:26 by vchaillo         ###   ########.fr        #
+#    Updated: 2015/03/22 08:30:11 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ LIBFT = -Llibft -lft
 
 MLX_H = -I minilibx/
 
-LIB_MLX = -Lminilibx -lmlx -framework OpenGl -framework Appkit
+LIB_MLX = -Lminilibx/ -lmlx -framework OpenGl -framework Appkit
 
 FDF_H = -I includes/
 
