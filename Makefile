@@ -12,7 +12,11 @@
 
 NAME = fdf
 
-SRCS_NAME = main.c\
+CC	=	gcc
+CFLAGS	+=	-Wall -Wextra -Werror
+RM	=	rm -Rf
+
+SRC = main.c\
 		   	mlx.c\
 		   	parser.c\
 		   	draw.c\
@@ -29,53 +33,51 @@ SRCS_NAME = main.c\
 			mouse_hook.c\
 			rotations.c\
 
-SRCS_PATH = ./srcs/
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	LIBMLX	=	-Lminilibx -lmlx -L/usr/lib -lXext -lX11 -lm
+else
+	UNAME_S = MACOS
+	LIBMLX		=	-Lminilibx_macos/ -lmlx -framework OpenGL -framework AppKit
+	FILE := $(shell ls libft/libft.a)
+endif
 
-OBJS_NAME = $(SRCS_NAME:.c=.o)
+LIBFT =	 -Llibft/ -lft
 
-OBJS_PATH = ./objs/
+INC	=	-I inc/ -I minilibx/ -I libft/include/
 
-SRCS = $(addprefix $(SRCS_PATH),$(SRCS_NAME))
+OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
-OBJS = $(addprefix $(OBJS_PATH),$(OBJS_NAME))
 
-FLAGS = -Wall -Wextra -Werror
-
-LIBFT_H = -I libft/includes/
-
-LIBFT = -Llibft -lft
-
-MLX_H = -I minilibx/
-
-LIB_MLX = -Lminilibx/ -lmlx -framework OpenGl -framework Appkit
-
-FDF_H = -I includes/
-
-all: $(NAME)
-
-$(NAME):
-	@make -C libft/ fclean
+all:   $(NAME)
+$(NAME): obj $(OBJ)
+		
+ifneq ($(FILE), libft/libft.a)
 	@make -C libft/
-	@make -C minilibx/ clean
-	@make -C minilibx/
-	@gcc -g $(FLAGS) $(LIBFT_H) $(FDF_H) $(MLX_H) -c $(SRCS)
-	@mkdir $(OBJS_PATH)
-	@mv $(OBJS_NAME) $(OBJS_PATH)
-	@gcc -o $(NAME) $(OBJS) $(LIBFT) $(LIB_MLX)
-	@echo "\033[32mfdf was created\033[0m"
+endif
+	
+		@echo "[\033[1;32m******  Creating $(UNAME_S) executable  ******\033[m]"
+		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 
-norm:
-	@echo "\033[32mnorminette...\033[0m"
-	@norminette **/*.[ch]
+obj/%.o: src/%.c
+		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+		@echo "[\033[1;32m√\033[m]" $<
+
+obj:
+		@mkdir -p obj
 
 clean:
-	@rm -rf $(OBJS_PATH)
-	@echo "\033[31mSuppression des .o\033[0m"
+		@echo "[\033[31;1m******  Cleaning object files  ******\033[0m]"
+		@$(RM) obj/
 
-fclean: clean
-	@rm -rf $(NAME)
-	@echo "\033[31mSuppression de fdf\033[0m"
+fclean:	clean
+		@echo "[\033[31;1m******  Cleaning executables  ******\033[0m]"
+		@$(RM) $(NAME)
+
+norm:
+		@echo "[\033[1;32m******  norminette ...  ******\033[0m]"
+		@norminette **/*.[ch]
 
 re: fclean all
 
-.PHONY: all norm clean fclean re
+.PHONY: all obj clean fclean norm re
