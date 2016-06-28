@@ -58,6 +58,7 @@ int				check_char(char *str)
 	return (len);
 }
 
+/*
 int				get_tab_len(char **tab)
 {
 	int		len;
@@ -75,8 +76,8 @@ int				get_tab_len(char **tab)
 	}
 	return (len);
 }
+*/
 
-/*
 int				get_tab_len(char **tab)
 {
 	int			len;
@@ -94,4 +95,4 @@ int				get_tab_len(char **tab)
 		i++;
 	}
 	return (len);
-}*/
+}

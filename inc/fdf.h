@@ -21,8 +21,8 @@
 # include <sys/stat.h>
 # include "libft.h"
 
-# define WIN_W 1920
-# define WIN_H 1080
+# define WIN_W 1340
+# define WIN_H 800
 # define HEAD_H (WIN_H / 20)
 # define IMG_H (WIN_H - HEAD_H)
 
