@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2017/04/03 02:33:08 by valentin         ###   ########.fr        #
+#    Updated: 2017/04/03 03:40:35 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,15 @@ NAME = fdf
 CC	=	gcc
 CFLAGS	=	-Wall -Wextra -Werror -O3
 RM	=	rm -Rf
+
+# Colors
+GREY = \033[30;1m
+RED = \033[31;1m
+GREEN =	\033[32;1m
+YELLOW = \033[33;1m
+BLUE = \033[34;1m
+WHITE = \033[37;1m
+END_COLOR =	\033[0m
 
 SRC = main.c\
 	mlx.c\
@@ -48,12 +57,17 @@ OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
 all:   $(NAME)
 $(NAME): obj libft $(OBJ)
-		@echo "[\033[1;32m******  Creating $(SYSTEM) executable  ******\033[m]"
+		@echo "==========================="
+		@printf "$(WHITE)Creating $(NAME)... $(END_COLOR)"
 		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
+		@echo "$(GREEN)Done √$(END_COLOR)"
+		@echo "==========================="
 
+DEPS := $(OBJ:.o=.d)
+-include $(DEPS)
 obj/%.o: src/%.c
-		@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
-		@echo "[\033[1;32m√\033[m]" $<
+		@$(CC) $(CFLAGS) -MD $(INC) -o $@ -c $<
+		@echo "[$(GREEN)√$(END_COLOR)]" $<
 
 obj:
 		@mkdir -p obj
@@ -62,16 +76,16 @@ libft:
 		@make -sC lib/libft/ 2>&-
 
 clean:
-		@echo "[\033[31;1m******  Cleaning object files  ******\033[0m]"
+		@echo "$(BLUE)$(NAME)$(GREY) - Cleaning object files$(END_COLOR)"
 		@$(RM) obj/
 
 fclean:	clean
-		@echo "[\033[31;1m******  Cleaning executables  ******\033[0m]"
+		@echo "$(BLUE)$(NAME)$(GREY) - Cleaning executables$(END_COLOR)"
 		@$(RM) $(NAME)
 		@make -sC lib/libft/ fclean 2>&-
 
 norm:
-		@echo "[\033[1;32m******  norminette ...  ******\033[0m]"
+		@echo "$(BLUE)Norminette...$(END_COLOR)"
 		@norminette src inc
 
 re: fclean all

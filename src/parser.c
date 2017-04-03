@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/06 19:19:07 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/03/22 08:56:04 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/03 03:39:16 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ t_point			**create_map(t_env *e)
 	char		*line;
 	int			fd;
 	int			i;
+	int			nb_lines;
 
 	i = 0;
 	line = NULL;
 	e->max_z = 0;
 	e->max_w = 0;
+	nb_lines = get_nb_map_lines(e);
+	if (!(grid = (t_point **)malloc(sizeof(t_point *) * nb_lines + 1)))
+		malloc_error();
 	if ((fd = open(e->path, O_RDONLY)) == -1)
 		open_error(e);
-	if (!(grid = (t_point **)malloc(sizeof(t_point *) * get_grid_len(e) + 1)))
-		malloc_error();
 	while (get_next_line(fd, &line) == 1)
 	{
-		grid[i] = create_t_point_tab(e, line, i);
+		grid[i] = create_t_point_line(e, line, i);
 		i++;
 	}
 	e->max_h = i;
@@ -38,7 +40,7 @@ t_point			**create_map(t_env *e)
 	return (grid);
 }
 
-t_point			*create_t_point_tab(t_env *e, char *line, int y)
+t_point			*create_t_point_line(t_env *e, char *line, int y)
 {
 	t_point		*tab;
 	char		**tmp;
