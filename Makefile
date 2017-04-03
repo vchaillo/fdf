@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2017/04/03 03:40:35 by valentin         ###   ########.fr        #
+#    Updated: 2017/04/03 08:06:49 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,13 @@ WHITE = \033[37;1m
 END_COLOR =	\033[0m
 
 SRC = main.c\
+	init.c\
 	mlx.c\
 	parser.c\
 	draw.c\
 	lines.c\
-	utils.c\
-	error_msg.c\
+	errors.c\
 	colors.c\
-	color_mode.c\
 	projections.c\
 	menus.c\
 	moves.c\
@@ -59,7 +58,7 @@ all:   $(NAME)
 $(NAME): obj libft $(OBJ)
 		@echo "==========================="
 		@printf "$(WHITE)Creating $(NAME)... $(END_COLOR)"
-		@$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
+		@$(CC) -o $@ $(OBJ) $(LIBMLX) $(LIBFT)
 		@echo "$(GREEN)Done √$(END_COLOR)"
 		@echo "==========================="
 

@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/03/22 08:35:29 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/03 08:15:35 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		key_hook(int keycode, t_env *e)
 	color_key_hook(keycode, e);
 	projection_key_hook(keycode, e);
 	move_key_hook(keycode, e);
-	erase_image(e);
+	update_image(e);
 	ft_putnbr(keycode);
 	ft_putchar('\n');
 	return (0);
@@ -39,19 +39,14 @@ int		key_hook(int keycode, t_env *e)
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
 	if (button == 1 && y < CASE_H && x > 0 && x < CASE_W)
-	{
-		if (e->menu == ON)
-			e->menu = OFF;
-		else
-			e->menu = ON;
-	}
-	if (button == 1 && y < CASE_H && x > CASE_W * 1 && x < CASE_W * 5)
+		e->menu = e->menu == ON ? OFF : ON;
+	else if (button == 1 && y < CASE_H && x > CASE_W * 1 && x < CASE_W * 5)
 		color_mouse_hook(e, x);
-	if (button == 1 && y < CASE_H && x > CASE_W * 7 && x < CASE_W * 9)
+	else if (button == 1 && y < CASE_H && x > CASE_W * 7 && x < CASE_W * 9)
 		projection_mouse_hook(e, x);
-	if (button == 1 && y < CASE_H && x > CASE_W * 9 && x < CASE_W * 10)
+	else if (button == 1 && y < CASE_H && x > CASE_W * 9 && x < CASE_W * 10)
 		vanilla_mode(e);
-	erase_image(e);
+	update_image(e);
 	return (0);
 }
 
@@ -61,18 +56,12 @@ void	start_mlx(char *path)
 
 	if (!(e.mlx = mlx_init()))
 		exit (0);
+	e.path = path;
 	e.win = mlx_new_window(e.mlx, WIN_W, WIN_H, "fdf");
 	e.img = mlx_new_image(e.mlx, WIN_W, IMG_H);
 	e.img_head = mlx_new_image(e.mlx, WIN_W, HEAD_H);
-	e.path = ft_strdup(path);
-	e.map = create_map(&e);
-	vanilla_mode(&e);
-	e.data = mlx_get_data_addr(e.img, &(e.bpp), &(e.size), &(e.endian));
-	e.data_head = mlx_get_data_addr(e.img_head, &(e.bpp), &(e.size_head),
-		&(e.endian));
-	calculate(&e);
-	draw_map(&e);
-	draw_header(&e);
+	init_env(&e);
+	update_image(&e);
 	mlx_expose_hook(e.win, expose_hook, &e);
 	mlx_mouse_hook(e.win, mouse_hook, &e);
 	mlx_hook(e.win, 3, 3, key_hook, &e);

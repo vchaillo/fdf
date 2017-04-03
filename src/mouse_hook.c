@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 15:12:44 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/25 15:15:50 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/03 08:16:04 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	projection_mouse_hook(t_env *e, int x)
 {
 	if (x < CASE_W * 8)
 		e->proj_mode = PARA;
-	if (x > CASE_W * 8)
+	else if (x > CASE_W * 8)
 		e->proj_mode = ISO;
 }
 

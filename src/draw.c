@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/25 18:47:21 by vchaillo         ###   ########.fr       */
+/*   Updated: 2017/04/03 08:22:21 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,14 @@ void	draw_lines(t_point p1, t_point p2, t_env *e)
 	}
 }
 
-void	erase_image(t_env *e)
+void	update_image(t_env *e)
 {
-	//mlx_destroy_image(e->mlx, e->img);
+	mlx_destroy_image(e->mlx, e->img);
 	e->img = mlx_new_image(e->mlx, WIN_W, IMG_H);
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	calculate(e);
 	draw_map(e);
+	printf("%s\n", e->menu == ON ? "ON" : "OFF");
 	if (e->menu == ON)
 		draw_menu(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, HEAD_H);

@@ -6,13 +6,13 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/06 19:19:07 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/03 03:39:16 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/03 07:47:30 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_point			**create_map(t_env *e)
+t_point			**parse_map(t_env *e)
 {
 	t_point		**grid;
 	char		*line;
@@ -74,4 +74,28 @@ t_point			get_point_infos(t_env *e, char *str, int x, int y)
 	if (point.z > e->max_z)
 		e->max_z = point.z;
 	return (point);
+}
+
+int				get_nb_map_lines(t_env *e)
+{
+	char		*line;
+	int			nb_lines;
+	int			fd;
+
+	if ((fd = open(e->path, O_RDONLY)) == -1)
+		open_error(e);
+	nb_lines = 0;
+	while (get_next_line(fd, &line) == 1)
+		nb_lines++;
+	return (nb_lines);
+}
+
+int				get_tab_len(char **tab)
+{
+	int			len;
+
+	len = 0;
+	while (tab[len])
+		len++;
+	return (len);
 }
