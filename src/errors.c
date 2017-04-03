@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_msg.c                                        :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:52:24 by valentin          #+#    #+#             */
-/*   Updated: 2015/02/18 18:16:49 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/03 08:45:14 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,12 @@ void	open_error(t_env *e)
 void	malloc_error(void)
 {
 	ft_putendl("Memory allocation error");
+	exit(0);
+}
+
+void	argument_error(char *arg)
+{
+	ft_putstr("Unknow option : ");
+	ft_putendl(arg);
 	exit(0);
 }

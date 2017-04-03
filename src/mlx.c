@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:31:37 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/03 08:15:35 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/03 08:52:14 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int		expose_hook(t_env *e)
 
 int		key_hook(int keycode, t_env *e)
 {
-	if (keycode == 65307)
+	if (keycode == KEY_ESCAPE || keycode == KEY_ESCAPE_MAC)
 		exit (0);
-	if (keycode == 65456 || keycode == 65438)
+	if (keycode == KEY_R || keycode == KEY_R_MAC)
 		vanilla_mode(e);
 	color_key_hook(keycode, e);
 	projection_key_hook(keycode, e);

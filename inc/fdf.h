@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/15 19:24:48 by vchaillo          #+#    #+#             */
-/*   Updated: 2017/04/03 08:06:40 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/03 08:52:38 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "structs.h"
 # include "macros.h"
 # include "colors.h"
+# include "keycodes.h"
 
 /*
 **				mlx.c functions
@@ -53,6 +54,7 @@ void			init_env(t_env *e);
 */
 void			open_error(t_env *e);
 void			malloc_error(void);
+void			argument_error(char *arg);
 
 /*
 **				menus.c functions

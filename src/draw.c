@@ -6,7 +6,7 @@
 /*   By: valentin <valentin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/17 02:20:44 by valentin          #+#    #+#             */
-/*   Updated: 2017/04/03 08:22:21 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/03 08:36:57 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	update_image(t_env *e)
 	e->data = mlx_get_data_addr(e->img, &(e->bpp), &(e->size), &(e->endian));
 	calculate(e);
 	draw_map(e);
-	printf("%s\n", e->menu == ON ? "ON" : "OFF");
 	if (e->menu == ON)
 		draw_menu(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, HEAD_H);
