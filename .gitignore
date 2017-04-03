@@ -1,2 +1,8 @@
-obj/*
 fdf
+obj/*
+*.o
+.DS_Store
+.directory
+._*
+*~
+*.swp

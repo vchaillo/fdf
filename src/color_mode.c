@@ -6,7 +6,7 @@
 /*   By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/05 18:54:06 by vchaillo          #+#    #+#             */
-/*   Updated: 2015/02/17 06:02:36 by valentin         ###   ########.fr       */
+/*   Updated: 2017/04/03 02:24:09 by valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	color_mode(int color_mode, int x, t_point p1, t_point p2)
 		color = select_french_color(x);
 	if (color_mode == MARS)
 		color = select_mars_color(p1, p2);
-	if (color_mode == EARTH)
+	else
 		color = select_earth_color(p1, p2);
 	return (color);
 }
