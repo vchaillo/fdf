@@ -1,19 +1,17 @@
-#fdf
+fdf
+===
 
-* [Subject] (https://github.com/vchaillo/fdf/blob/master/fdf.pdf)
+[Subject](../master/fdf.pdf)
 
-=============
-###Description
+### Description
 
 Introduction to graphic applications: open a window and draw! With this project, you'll explore the principles of user interface programmation through a 3D "wireframe" representation of a surface.
 
-=============
-###Usage
+### Usage
 
 ```
 make
 ./fdf [FILEMAP]
 ```
 
-=============
-Project of 42
+###### Project of school 42

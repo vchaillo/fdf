@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2017/04/03 02:21:54 by valentin         ###   ########.fr        #
+#    Updated: 2017/04/03 02:33:08 by valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ else
 	FILE := $(shell ls libft/libft.a)
 endif
 LIBFT =	 -Llib/libft/ -lft
-INC	=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM) -I lib/libft/include/
+INC	=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM) -I lib/libft/includes/
 OBJ	=	$(patsubst %.c, obj/%.o, $(SRC))
 
 
