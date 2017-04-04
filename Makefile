@@ -6,7 +6,7 @@
 #    By: vchaillo <vchaillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:25:58 by vchaillo          #+#    #+#              #
-#    Updated: 2017/04/03 08:06:49 by valentin         ###   ########.fr        #
+#    Updated: 2017/04/03 22:30:34 by vchaillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,7 @@ ifeq ($(SYSTEM), Linux)
 	LIBMLX	=	-Llib/mlx/minilibx_$(SYSTEM) -lmlx -L/usr/lib -lXext -lX11 -lm
 else
 	SYSTEM = MACOS
-	LIBMLX		=	-Llib/mlxminilibx__$(SYSTEM) -lmlx -framework OpenGL -framework AppKit
-	FILE := $(shell ls libft/libft.a)
+	LIBMLX		=	-Llib/mlx/minilibx_$(SYSTEM) -lmlx -framework OpenGL -framework AppKit
 endif
 LIBFT =	 -Llib/libft/ -lft
 INC	=	-I inc/ -I lib/mlx/minilibx_$(SYSTEM) -I lib/libft/includes/
